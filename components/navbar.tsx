@@ -19,21 +19,26 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-lg">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image
-            src="/images/logo.png"
-            alt="PaperStation Logo"
-            width={36}
-            height={36}
-            className="rounded-lg"
-          />
-          <span className="text-lg font-semibold text-foreground">
-            PaperStation
+      <nav className="mx-auto flex max-w-7xl items-center px-6 py-4">
+        <div className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/images/logo.png"
+              alt="PaperStation Logo"
+              width={36}
+              height={36}
+              className="rounded-lg"
+            />
+            <span className="text-lg font-semibold text-foreground">
+              PaperStation
+            </span>
+          </Link>
+          <span className="text-sm text-muted-foreground">
+            由Ruanm开发
           </span>
-        </Link>
+        </div>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="flex-1 hidden items-center justify-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -47,10 +52,10 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Button asChild size="sm" className="gap-2 rounded-full">
-            <a href="https://github.com/ruanmingze/PaperStation-browser/releases" target="_blank" rel="noopener noreferrer">
+            <Link href="/download">
               <Download className="h-4 w-4" />
-              下载 v1.1.5
-            </a>
+              下载
+            </Link>
           </Button>
         </div>
 
@@ -77,10 +82,10 @@ export function Navbar() {
               </Link>
             ))}
             <Button asChild size="sm" className="mt-2 gap-2 rounded-full">
-              <a href="https://github.com/ruanmingze/PaperStation-browser/releases" target="_blank" rel="noopener noreferrer">
+              <Link href="/download">
                 <Download className="h-4 w-4" />
-                下载 v1.1.5
-              </a>
+                下载
+              </Link>
             </Button>
           </div>
         </div>

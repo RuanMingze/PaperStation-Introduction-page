@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 
-const words = ["聪明", "快速", "智能", "丰富", "安全"]
+const words = ["聪明", "快速", "智能", "丰富", "安全", "高效", "便捷", "稳定", "现代", "强大", "灵活", "优雅", "可靠", "轻量", "专业", "创新"]
 
 export function RotatingText() {
   const [currentIndex, setCurrentIndex] = useState(0)

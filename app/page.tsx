@@ -1,9 +1,8 @@
 import { Navbar } from "@/components/navbar"
-import { HeroSection } from "@/components/hero-section"
+import { HeroSection, TabsSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
 import { ComparisonSection } from "@/components/comparison-section"
 import { TechStackSection } from "@/components/tech-stack-section"
-import { InstallSection } from "@/components/install-section"
 import { ContributeSection } from "@/components/contribute-section"
 import { Footer } from "@/components/footer"
 
@@ -13,10 +12,10 @@ export default function HomePage() {
       <Navbar />
       <main>
         <HeroSection />
+        <TabsSection />
         <FeaturesSection />
         <ComparisonSection />
         <TechStackSection />
-        <InstallSection />
         <ContributeSection />
       </main>
       <Footer />
