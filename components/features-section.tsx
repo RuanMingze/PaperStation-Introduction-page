@@ -1,0 +1,139 @@
+import {
+  Brain,
+  FileText,
+  Search,
+  Zap,
+  Bookmark,
+  Keyboard,
+  Moon,
+  Shield,
+  LayoutGrid,
+} from "lucide-react"
+
+const mainFeatures = [
+  {
+    icon: Brain,
+    title: "知识捕获",
+    description:
+      "浏览网页时自动提取关键信息，智能分类并建立知识点之间的逻辑联系，所有数据保存在本地确保隐私安全。",
+    color: "text-primary",
+    bg: "bg-accent",
+  },
+  {
+    icon: FileText,
+    title: "智能总结",
+    description:
+      "一键生成页面核心内容摘要，自动提取 5 个核心要点、3 个关键术语解释和 2 个实际应用案例。",
+    color: "text-blue-600",
+    bg: "bg-blue-50",
+  },
+  {
+    icon: LayoutGrid,
+    title: "结构化导出",
+    description:
+      "支持导出为 PDF、HTML 等格式，自动生成目录导航和精美排版，支持多种可定制模板。",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50",
+  },
+]
+
+const subFeatures = [
+  {
+    icon: Search,
+    title: "ChickRubGo 搜索",
+    description: "集成本土化搜索引擎，更符合中文用户需求",
+  },
+  {
+    icon: Zap,
+    title: "快速启动",
+    description: "优化启动速度，秒开浏览器",
+  },
+  {
+    icon: Bookmark,
+    title: "书签管理",
+    description: "便捷的书签管理和快速访问",
+  },
+  {
+    icon: Moon,
+    title: "深色模式",
+    description: "内置深色模式，保护你的视力",
+  },
+  {
+    icon: Shield,
+    title: "隐私优先",
+    description: "隐私优先设计，数据本地存储",
+  },
+  {
+    icon: Keyboard,
+    title: "快捷键支持",
+    description: "丰富的快捷键支持，提升操作效率",
+  },
+]
+
+export function FeaturesSection() {
+  return (
+    <section id="features" className="bg-[hsl(var(--feature-bg))] py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            核心功能
+          </p>
+          <h2 className="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
+            不只是浏览器，更是你的知识助手
+          </h2>
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+            三大核心功能，将碎片化浏览转化为系统化知识
+          </p>
+        </div>
+
+        {/* Main 3 features */}
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {mainFeatures.map((feature, idx) => (
+            <div
+              key={feature.title}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+              className="group rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+            >
+              <div
+                className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl ${feature.bg}`}
+              >
+                <feature.icon className={`h-6 w-6 ${feature.color}`} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">
+                {feature.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Sub features grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {subFeatures.map((feature, idx) => (
+            <div
+              key={feature.title}
+              data-aos="fade-up"
+              data-aos-delay={idx * 80}
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/20"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                <feature.icon className="h-5 w-5 text-muted-foreground" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">
+                  {feature.title}
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
