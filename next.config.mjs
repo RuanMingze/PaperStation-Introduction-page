@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: process.env.NEXT_OUTPUT_MODE || 'export',
   images: {
     unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  devIndicators: {
+    buildActivity: false,
+    buildActivityPosition: 'bottom-right',
   }
 }
 

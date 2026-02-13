@@ -58,11 +58,11 @@ export function HeroSection() {
             data-aos-delay="100"
             className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
+            <span className="text-primary">为你打造</span>
+            <br />
             {'更'}
             <RotatingText />
             {'的浏览器'}
-            <br />
-            <span className="text-primary">为你打造</span>
           </h1>
 
           <p

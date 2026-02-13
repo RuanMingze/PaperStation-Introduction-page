@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Github } from "lucide-react"
+import { Github, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -24,6 +24,15 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-4">
+          <Link
+            href="/sitemap.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="站点地图"
+          >
+            <MapPin className="h-5 w-5" />
+          </Link>
           <Link
             href="https://github.com/ruanmingze/PaperStation-browser"
             target="_blank"

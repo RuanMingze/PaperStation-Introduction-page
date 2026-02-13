@@ -1,35 +1,85 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import {
+  Monitor,
+  Globe,
+  Code,
+  Server,
+  Database,
+  Package
+} from 'lucide-react'
+
 const techStack = [
-  {
-    name: "Electron 40",
-    description: "跨平台桌面应用框架",
-    version: "El",
-  },
-  {
-    name: "Chromium",
-    description: "高性能网页渲染引擎",
-    version: "Ch",
-  },
-  {
-    name: "HTML / CSS / JS",
-    description: "原生前端技术",
-    version: "ES",
-  },
-  {
-    name: "Node.js",
-    description: "后端运行环境",
-    version: "Nj",
-  },
-  {
-    name: "IndexedDB",
-    description: "本地知识存储",
-    version: "IDB",
-  },
-  {
-    name: "electron-builder",
-    description: "应用打包与分发",
-    version: "EB",
-  },
+  { name: "Electron 40", description: "跨平台桌面应用框架", icon: Monitor, color: "text-blue-500" },
+  { name: "Chromium", description: "高性能网页渲染引擎", icon: Globe, color: "text-red-500" },
+  { name: "HTML / CSS / JS", description: "原生前端技术", icon: Code, color: "text-yellow-500" },
+  { name: "Node.js", description: "后端运行环境", icon: Server, color: "text-green-500" },
+  { name: "IndexedDB", description: "本地知识存储", icon: Database, color: "text-purple-500" },
+  { name: "electron-builder", description: "应用打包与分发", icon: Package, color: "text-orange-500" },
 ]
+
+function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cardRef.current) return
+      
+      const rect = cardRef.current.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      
+      setMousePosition({ x, y })
+    }
+
+    const card = cardRef.current
+    if (card) {
+      card.addEventListener('mousemove', handleMouseMove)
+      card.addEventListener('mouseenter', () => setIsHovered(true))
+      card.addEventListener('mouseleave', () => setIsHovered(false))
+    }
+
+    return () => {
+      if (card) {
+        card.removeEventListener('mousemove', handleMouseMove)
+        card.removeEventListener('mouseenter', () => setIsHovered(true))
+        card.removeEventListener('mouseleave', () => setIsHovered(false))
+      }
+    }
+  }, [])
+
+  return (
+    <div
+      ref={cardRef}
+      key={tech.name}
+      data-aos="fade-up"
+      data-aos-delay={idx * 80}
+      className="relative flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/20"
+    >
+      {isHovered && (
+        <div 
+          className="absolute inset-0 rounded-xl transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(224, 112, 32, 0.15), transparent 60%)`,
+            opacity: 1
+          }}
+        />
+      )}
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary">
+        <tech.icon className={`h-6 w-6 ${tech.color}`} />
+      </div>
+      <div>
+        <h4 className="font-semibold text-foreground">{tech.name}</h4>
+        <p className="mt-0.5 text-sm text-muted-foreground">
+          {tech.description}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function TechStackSection() {
   return (
@@ -49,22 +99,7 @@ export function TechStackSection() {
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {techStack.map((tech, idx) => (
-            <div
-              key={tech.name}
-              data-aos="fade-up"
-              data-aos-delay={idx * 80}
-              className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/20"
-            >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary font-mono text-xs font-bold text-muted-foreground">
-                {tech.version.slice(0, 4)}
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground">{tech.name}</h4>
-                <p className="mt-0.5 text-sm text-muted-foreground">
-                  {tech.description}
-                </p>
-              </div>
-            </div>
+            <TechStackCard key={tech.name} tech={tech} idx={idx} />
           ))}
         </div>
       </div>

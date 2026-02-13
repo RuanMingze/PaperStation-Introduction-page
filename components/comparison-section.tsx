@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import { Check, X, Minus } from "lucide-react"
 
 const comparisons = [
@@ -33,6 +36,37 @@ function StatusIcon({ status }: { status: string }) {
 }
 
 export function ComparisonSection() {
+  const tableRef = useRef<HTMLDivElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!tableRef.current) return
+      
+      const rect = tableRef.current.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      
+      setMousePosition({ x, y })
+    }
+
+    const table = tableRef.current
+    if (table) {
+      table.addEventListener('mousemove', handleMouseMove)
+      table.addEventListener('mouseenter', () => setIsHovered(true))
+      table.addEventListener('mouseleave', () => setIsHovered(false))
+    }
+
+    return () => {
+      if (table) {
+        table.removeEventListener('mousemove', handleMouseMove)
+        table.removeEventListener('mouseenter', () => setIsHovered(true))
+        table.removeEventListener('mouseleave', () => setIsHovered(false))
+      }
+    }
+  }, [])
+
   return (
     <section id="comparison" className="bg-background py-24">
       <div className="mx-auto max-w-4xl px-6">
@@ -49,10 +83,20 @@ export function ComparisonSection() {
         </div>
 
         <div
+          ref={tableRef}
           data-aos="fade-up"
           data-aos-delay="150"
-          className="mt-14 overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+          className="relative mt-14 overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
         >
+          {isHovered && (
+            <div 
+              className="absolute inset-0 rounded-2xl transition-opacity duration-300"
+              style={{
+                background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(224, 112, 32, 0.15), transparent 60%)`,
+                opacity: 1
+              }}
+            />
+          )}
           {/* Header */}
           <div className="grid grid-cols-3 border-b border-border bg-secondary/50 px-6 py-4">
             <div className="text-sm font-semibold text-foreground">功能特性</div>
@@ -68,9 +112,7 @@ export function ComparisonSection() {
           {comparisons.map((row, idx) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-3 items-center px-6 py-4 ${
-                idx !== comparisons.length - 1 ? "border-b border-border" : ""
-              } ${idx % 2 === 0 ? "bg-card" : "bg-secondary/20"}`}
+              className={`grid grid-cols-3 items-center px-6 py-4 ${idx !== comparisons.length - 1 ? "border-b border-border" : ""} ${idx % 2 === 0 ? "bg-card" : "bg-secondary/20"}`}
             >
               <div className="text-sm text-foreground">{row.feature}</div>
               <div className="flex justify-center">

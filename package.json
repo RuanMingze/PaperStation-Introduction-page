@@ -1,11 +1,12 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "PaperStation-Introduction-page",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
+    "build:standalone": "NEXT_OUTPUT_MODE=standalone next build",
+    "start": "if [ -f .next/standalone/server.js ]; then node .next/standalone/server.js; else next start; fi",
     "lint": "next lint"
   },
   "dependencies": {
@@ -73,6 +74,9 @@
     "overrides": {
       "@types/react": "19.2.7",
       "@types/react-dom": "19.2.3"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }

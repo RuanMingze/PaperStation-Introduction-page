@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import { GitBranch, GitPullRequest, Users, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -7,6 +10,54 @@ const contributeSteps = [
   { step: "3", label: "提交更改" },
   { step: "4", label: "推送并创建 PR" },
 ]
+
+function ContributeCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cardRef.current) return
+      
+      const rect = cardRef.current.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      
+      setMousePosition({ x, y })
+    }
+
+    const card = cardRef.current
+    if (card) {
+      card.addEventListener('mousemove', handleMouseMove)
+      card.addEventListener('mouseenter', () => setIsHovered(true))
+      card.addEventListener('mouseleave', () => setIsHovered(false))
+    }
+
+    return () => {
+      if (card) {
+        card.removeEventListener('mousemove', handleMouseMove)
+        card.removeEventListener('mouseenter', () => setIsHovered(true))
+        card.removeEventListener('mouseleave', () => setIsHovered(false))
+      }
+    }
+  }, [])
+
+  return (
+    <div ref={cardRef} className={`relative ${className}`}>
+      {isHovered && (
+        <div 
+          className="absolute inset-0 rounded-2xl transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(224, 112, 32, 0.15), transparent 60%)`,
+            opacity: 1
+          }}
+        />
+      )}
+      {children}
+    </div>
+  )
+}
 
 export function ContributeSection() {
   return (
@@ -26,7 +77,7 @@ export function ContributeSection() {
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           {/* Contribute steps */}
-          <div data-aos="fade-right" data-aos-delay="100" className="rounded-2xl border border-border bg-card p-8">
+          <ContributeCard className="rounded-2xl border border-border bg-card p-8" data-aos="fade-right" data-aos-delay="100">
             <div className="mb-6 flex items-center gap-3">
               <GitBranch className="h-5 w-5 text-primary" />
               <h3 className="text-lg font-semibold text-foreground">贡献流程</h3>
@@ -54,11 +105,11 @@ export function ContributeSection() {
                 </a>
               </Button>
             </div>
-          </div>
+          </ContributeCard>
 
           {/* Credits & Contact */}
           <div className="flex flex-col gap-6">
-            <div data-aos="fade-left" data-aos-delay="150" className="flex-1 rounded-2xl border border-border bg-card p-8">
+            <ContributeCard className="flex-1 rounded-2xl border border-border bg-card p-8" data-aos="fade-left" data-aos-delay="150">
               <div className="mb-4 flex items-center gap-3">
                 <Users className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-foreground">核心团队</h3>
@@ -76,9 +127,9 @@ export function ContributeSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ContributeCard>
 
-            <div data-aos="fade-left" data-aos-delay="250" className="flex-1 rounded-2xl border border-border bg-card p-8">
+            <ContributeCard className="flex-1 rounded-2xl border border-border bg-card p-8" data-aos="fade-left" data-aos-delay="250">
               <div className="mb-4 flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />
                 <h3 className="text-lg font-semibold text-foreground">反馈方式</h3>
@@ -91,7 +142,9 @@ export function ContributeSection() {
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    邮箱 -{" "}
+                    邮箱 -{
+                      " "
+                    }
                     <a
                       href="mailto:xmt20160124@outlook.com"
                       className="text-primary underline underline-offset-2 hover:text-primary/80"
@@ -103,7 +156,9 @@ export function ContributeSection() {
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    社区 -{" "}
+                    社区 -{
+                      " "
+                    }
                     <a
                       href="https://teams.live.com/l/community/FBA6Av9UPytPH-BJAI"
                       target="_blank"
@@ -115,7 +170,7 @@ export function ContributeSection() {
                   </span>
                 </li>
               </ul>
-            </div>
+            </ContributeCard>
           </div>
         </div>
       </div>

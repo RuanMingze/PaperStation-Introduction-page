@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { AosInit } from '@/components/aos-init'
+import { OrientationPrompt } from '@/components/orientation-prompt'
+import { NavigationProgress } from '@/components/navigation-progress'
 
 import './globals.css'
 
@@ -27,8 +29,10 @@ export default function RootLayout({
       <head>
       </head>
       <body className="font-sans antialiased">
+        <NavigationProgress />
         {children}
         <AosInit />
+        <OrientationPrompt />
       </body>
     </html>
   )
