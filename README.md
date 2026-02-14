@@ -1,6 +1,6 @@
 # PaperStation Browser 介绍页面
 
-这是 PaperStation Browser 的官方介绍网站，基于 Next.js 14 构建，展示了浏览器的核心功能、技术栈和使用方法。
+这是 PaperStation Browser 的官方介绍网站，基于 Next.js 16 构建，展示了浏览器的核心功能、技术栈和使用方法。
 
 ## 项目特点
 
@@ -21,7 +21,7 @@
 ## 技术栈
 
 ### 前端
-- **框架**：Next.js 14
+- **框架**：Next.js 16
 - **语言**：TypeScript
 - **样式**：Tailwind CSS
 - **动画**：AOS (Animate On Scroll)
