@@ -5,17 +5,23 @@ import Image from "next/image"
 import { Download, Github, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RotatingText } from "@/components/rotating-text"
+import { useAnimationStore } from "@/lib/animation-state"
+import { Language, translations } from "@/lib/i18n"
 
 const screenshots = [
   { src: "/images/screenshot.png", alt: "PaperStation Browser 界面预览 1" },
   { src: "/images/screenshot2.png", alt: "PaperStation Browser 界面预览 2" },
   { src: "/images/screenshot3.png", alt: "PaperStation Browser 界面预览 3" },
   { src: "/images/screenshot4.png", alt: "PaperStation Browser 界面预览 4" },
+  { src: "/images/screenshot5.png", alt: "PaperStation Browser 界面预览 5" },
 ]
 
-export function HeroSection() {
+export function HeroSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
   const [currentIndex, setCurrentIndex] = useState(0)
   const [progress, setProgress] = useState(0)
+  const { isPaused } = useAnimationStore()
+  const t = translations[safeLang].hero
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index)
@@ -23,6 +29,8 @@ export function HeroSection() {
   }
 
   useEffect(() => {
+    if (isPaused) return
+    
     const interval = setInterval(() => {
       setProgress(prev => {
         const newProgress = prev + (100 / 80)
@@ -35,7 +43,7 @@ export function HeroSection() {
     }, 100)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [isPaused])
 
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--hero-bg))]">
@@ -56,13 +64,23 @@ export function HeroSection() {
           <h1
             data-aos="fade-up"
             data-aos-delay="100"
-            className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+            className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            <span className="text-primary">为你打造</span>
-            <br />
-            {'更'}
-            <RotatingText />
-            {'的浏览器'}
+            {safeLang === 'zh' ? (
+              <>
+                <span className="text-primary">为你打造</span>
+                <br />
+                更
+                <RotatingText lang={safeLang} />
+                的浏览器
+              </>
+            ) : (
+              <>
+                <span className="text-primary">Built for you</span>
+                <br />
+                A more <RotatingText lang={safeLang} /> browser
+              </>
+            )}
           </h1>
 
           <p
@@ -70,8 +88,7 @@ export function HeroSection() {
             data-aos-delay="200"
             className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground"
           >
-            PaperStation Browser 基于 Electron + Chromium 打造，拥有知识捕获、智能总结、
-            结构化导出等独有功能，帮助你在浏览中高效积累知识。
+            {t.subtitle}
           </p>
 
           <div
@@ -80,9 +97,9 @@ export function HeroSection() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button asChild size="lg" className="gap-2 rounded-full px-8 text-base">
-              <a href="./download" target="_blank" rel="noopener noreferrer">
+              <a href={`/${safeLang}/download`} target="_blank" rel="noopener noreferrer">
                 <Download className="h-5 w-5" />
-                下载
+                {safeLang === 'zh' ? '下载' : 'Download'}
               </a>
             </Button>
           </div>
@@ -141,21 +158,23 @@ export function HeroSection() {
   )
 }
 
-export function TabsSection() {
+export function TabsSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
   const [currentTab, setCurrentTab] = useState(0)
   const [isInView, setIsInView] = useState(false)
   const sectionRef = useRef(null)
+  const { isPaused } = useAnimationStore()
 
   const tabs = [
     {
-      title: "标签页流畅多开",
-      description: "轻松管理多个标签页，高效切换，提升浏览体验",
+      title: safeLang === 'zh' ? "标签页流畅多开" : "Smooth Tab Management",
+      description: safeLang === 'zh' ? "轻松管理多个标签页，高效切换，提升浏览体验" : "Easily manage multiple tabs, switch efficiently, and enhance browsing experience",
       video: "/Videos/1.mp4",
       url: "PaperStation Browser"
     },
     {
-      title: "丰富的设置选项",
-      description: "个性化定制您的浏览器体验，满足您的各种需求",
+      title: safeLang === 'zh' ? "丰富的设置选项" : "Rich Settings Options",
+      description: safeLang === 'zh' ? "个性化定制您的浏览器体验，满足您的各种需求" : "Personalize your browser experience to meet your various needs",
       video: "/Videos/Settings.mp4",
       url: "paperstation://Settings"
     }
@@ -164,7 +183,9 @@ export function TabsSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.isIntersecting)
+        if (!isPaused) {
+          setIsInView(entry.isIntersecting)
+        }
       },
       {
         threshold: 0.3,
@@ -181,7 +202,7 @@ export function TabsSection() {
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [])
+  }, [isPaused])
 
   return (
     <section className="relative overflow-hidden bg-background py-16">

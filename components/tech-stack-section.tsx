@@ -9,14 +9,24 @@ import {
   Database,
   Package
 } from 'lucide-react'
+import { Language } from "@/lib/i18n"
 
-const techStack = [
+const techStackZh = [
   { name: "Electron 40", description: "跨平台桌面应用框架", icon: Monitor, color: "text-blue-500" },
   { name: "Chromium", description: "高性能网页渲染引擎", icon: Globe, color: "text-red-500" },
   { name: "HTML / CSS / JS", description: "原生前端技术", icon: Code, color: "text-yellow-500" },
   { name: "Node.js", description: "后端运行环境", icon: Server, color: "text-green-500" },
   { name: "IndexedDB", description: "本地知识存储", icon: Database, color: "text-purple-500" },
   { name: "electron-builder", description: "应用打包与分发", icon: Package, color: "text-orange-500" },
+]
+
+const techStackEn = [
+  { name: "Electron 40", description: "Cross-platform desktop application framework", icon: Monitor, color: "text-blue-500" },
+  { name: "Chromium", description: "High-performance web rendering engine", icon: Globe, color: "text-red-500" },
+  { name: "HTML / CSS / JS", description: "Native frontend technologies", icon: Code, color: "text-yellow-500" },
+  { name: "Node.js", description: "Backend runtime environment", icon: Server, color: "text-green-500" },
+  { name: "IndexedDB", description: "Local knowledge storage", icon: Database, color: "text-purple-500" },
+  { name: "electron-builder", description: "Application packaging and distribution", icon: Package, color: "text-orange-500" },
 ]
 
 function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
@@ -81,19 +91,22 @@ function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
   )
 }
 
-export function TechStackSection() {
+export function TechStackSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const techStack = safeLang === 'zh' ? techStackZh : techStackEn
+
   return (
     <section id="tech" className="bg-[hsl(var(--feature-bg))] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            技术栈
+            {safeLang === 'zh' ? '技术栈' : 'Tech Stack'}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
-            现代化技术，可靠性能
+            {safeLang === 'zh' ? '现代化技术，可靠性能' : 'Modern Technology, Reliable Performance'}
           </h2>
           <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            基于成熟稳定的技术栈打造，兼顾性能与开发效率
+            {safeLang === 'zh' ? '基于成熟稳定的技术栈打造，兼顾性能与开发效率' : 'Built on mature and stable technology stack, balancing performance and development efficiency'}
           </p>
         </div>
 

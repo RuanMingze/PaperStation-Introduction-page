@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
-    "build:standalone": "NEXT_OUTPUT_MODE=standalone next build",
+    "build": "cross-env OUTPUT_MODE=export next build",
+    "build:standalone": "cross-env NEXT_OUTPUT_MODE=standalone next build",
     "start": "if [ -f .next/standalone/server.js ]; then node .next/standalone/server.js; else next start; fi",
     "lint": "next lint"
   },
@@ -63,9 +63,11 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
+    "@types/aos": "^3.0.7",
     "@types/node": "^22",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "cross-env": "^10.1.0",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "5.7.3"

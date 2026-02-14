@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Check, X, Minus } from "lucide-react"
+import { Language, translations } from "@/lib/i18n"
 
-const comparisons = [
+const comparisonsZh = [
   { feature: "知识捕获模式", chrome: "none", paper: "full" },
   { feature: "智能总结功能", chrome: "none", paper: "full" },
   { feature: "结构化知识导出", chrome: "none", paper: "full" },
@@ -13,6 +14,18 @@ const comparisons = [
   { feature: "现代界面", chrome: "full", paper: "full" },
   { feature: "隐私优先设计", chrome: "partial", paper: "full" },
   { feature: "轻量高效", chrome: "partial", paper: "full" },
+]
+
+const comparisonsEn = [
+  { feature: "Knowledge Capture Mode", chrome: "none", paper: "full" },
+  { feature: "Smart Summarization", chrome: "none", paper: "full" },
+  { feature: "Structured Knowledge Export", chrome: "none", paper: "full" },
+  { feature: "ChickRubGo Localized Search", chrome: "none", paper: "full" },
+  { feature: "Full Chinese Localization", chrome: "none", paper: "full" },
+  { feature: "Dark Mode", chrome: "full", paper: "full" },
+  { feature: "Modern Interface", chrome: "full", paper: "full" },
+  { feature: "Privacy-First Design", chrome: "partial", paper: "full" },
+  { feature: "Lightweight & Efficient", chrome: "partial", paper: "full" },
 ]
 
 function StatusIcon({ status }: { status: string }) {
@@ -35,7 +48,9 @@ function StatusIcon({ status }: { status: string }) {
   )
 }
 
-export function ComparisonSection() {
+export function ComparisonSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const comparisons = safeLang === 'zh' ? comparisonsZh : comparisonsEn
   const tableRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -72,13 +87,13 @@ export function ComparisonSection() {
       <div className="mx-auto max-w-4xl px-6">
         <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            对比优势
+            {safeLang === 'zh' ? '对比优势' : 'Comparison'}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
-            为什么选择 PaperStation？
+            {safeLang === 'zh' ? '为什么选择 PaperStation？' : 'Why Choose PaperStation?'}
           </h2>
           <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            在浏览器核心功能之上，提供 Chrome/Edge 不具备的知识管理能力
+            {safeLang === 'zh' ? '在浏览器核心功能之上，提供 Chrome/Edge 不具备的知识管理能力' : 'Beyond core browser features, providing knowledge management capabilities not available in Chrome/Edge'}
           </p>
         </div>
 
@@ -99,7 +114,7 @@ export function ComparisonSection() {
           )}
           {/* Header */}
           <div className="grid grid-cols-3 border-b border-border bg-secondary/50 px-6 py-4">
-            <div className="text-sm font-semibold text-foreground">功能特性</div>
+            <div className="text-sm font-semibold text-foreground">{safeLang === 'zh' ? '功能特性' : 'Features'}</div>
             <div className="text-center text-sm font-semibold text-muted-foreground">
               Chrome / Edge
             </div>

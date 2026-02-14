@@ -3,15 +3,23 @@
 import { useEffect, useRef, useState } from 'react'
 import { GitBranch, GitPullRequest, Users, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Language } from "@/lib/i18n"
 
-const contributeSteps = [
+const contributeStepsZh = [
   { step: "1", label: "Fork 本仓库" },
   { step: "2", label: "创建特性分支" },
   { step: "3", label: "提交更改" },
   { step: "4", label: "推送并创建 PR" },
 ]
 
-function ContributeCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+const contributeStepsEn = [
+  { step: "1", label: "Fork this repository" },
+  { step: "2", label: "Create feature branch" },
+  { step: "3", label: "Commit changes" },
+  { step: "4", label: "Push and create PR" },
+]
+
+function ContributeCard({ children, className = "", ...props }: { children: React.ReactNode; className?: string; [key: string]: any }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -44,7 +52,7 @@ function ContributeCard({ children, className = "" }: { children: React.ReactNod
   }, [])
 
   return (
-    <div ref={cardRef} className={`relative ${className}`}>
+    <div ref={cardRef} className={`relative ${className}`} {...props}>
       {isHovered && (
         <div 
           className="absolute inset-0 rounded-2xl transition-opacity duration-300"
@@ -59,19 +67,22 @@ function ContributeCard({ children, className = "" }: { children: React.ReactNod
   )
 }
 
-export function ContributeSection() {
+export function ContributeSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const contributeSteps = safeLang === 'zh' ? contributeStepsZh : contributeStepsEn
+
   return (
     <section id="contribute" className="bg-[hsl(var(--feature-bg))] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            参与贡献
+            {safeLang === 'zh' ? '参与贡献' : 'Contribute'}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
-            一起构建更好的浏览器
+            {safeLang === 'zh' ? '一起构建更好的浏览器' : 'Build a Better Browser Together'}
           </h2>
           <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            PaperStation 是一个开源项目，欢迎每一位开发者参与
+            {safeLang === 'zh' ? 'PaperStation 是一个开源项目，欢迎每一位开发者参与' : 'PaperStation is an open-source project, welcoming every developer to participate'}
           </p>
         </div>
 
@@ -80,7 +91,7 @@ export function ContributeSection() {
           <ContributeCard className="rounded-2xl border border-border bg-card p-8" data-aos="fade-right" data-aos-delay="100">
             <div className="mb-6 flex items-center gap-3">
               <GitBranch className="h-5 w-5 text-primary" />
-              <h3 className="text-lg font-semibold text-foreground">贡献流程</h3>
+              <h3 className="text-lg font-semibold text-foreground">{safeLang === 'zh' ? '贡献流程' : 'Contribution Process'}</h3>
             </div>
             <div className="space-y-4">
               {contributeSteps.map((item) => (
@@ -101,7 +112,7 @@ export function ContributeSection() {
                   rel="noopener noreferrer"
                 >
                   <GitPullRequest className="h-4 w-4" />
-                  开始贡献
+                  {safeLang === 'zh' ? '开始贡献' : 'Start Contributing'}
                 </a>
               </Button>
             </div>
@@ -112,7 +123,7 @@ export function ContributeSection() {
             <ContributeCard className="flex-1 rounded-2xl border border-border bg-card p-8" data-aos="fade-left" data-aos-delay="150">
               <div className="mb-4 flex items-center gap-3">
                 <Users className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-foreground">核心团队</h3>
+                <h3 className="text-lg font-semibold text-foreground">{safeLang === 'zh' ? '核心团队' : 'Core Team'}</h3>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -122,7 +133,7 @@ export function ContributeSection() {
                   <div>
                     <p className="font-medium text-foreground">Ruanm</p>
                     <p className="text-sm text-muted-foreground">
-                      核心开发团队
+                      {safeLang === 'zh' ? '核心开发团队' : 'Core Development Team'}
                     </p>
                   </div>
                 </div>
@@ -132,17 +143,17 @@ export function ContributeSection() {
             <ContributeCard className="flex-1 rounded-2xl border border-border bg-card p-8" data-aos="fade-left" data-aos-delay="250">
               <div className="mb-4 flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-semibold text-foreground">反馈方式</h3>
+                <h3 className="text-lg font-semibold text-foreground">{safeLang === 'zh' ? '反馈方式' : 'Contact Us'}</h3>
               </div>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  <span>GitHub Issues - 提交 Bug 或功能建议</span>
+                  <span>{safeLang === 'zh' ? 'GitHub Issues - 提交 Bug 或功能建议' : 'GitHub Issues - Submit bugs or feature requests'}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    邮箱 -{
+                    {safeLang === 'zh' ? '邮箱 -' : 'Email -'}{
                       " "
                     }
                     <a
@@ -156,7 +167,7 @@ export function ContributeSection() {
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <span>
-                    社区 -{
+                    {safeLang === 'zh' ? '社区 -' : 'Community -'}{
                       " "
                     }
                     <a
@@ -165,7 +176,7 @@ export function ContributeSection() {
                       rel="noopener noreferrer"
                       className="text-primary underline underline-offset-2 hover:text-primary/80"
                     >
-                      加入 Teams 社区
+                      {safeLang === 'zh' ? '加入 Teams 社区' : 'Join Teams Community'}
                     </a>
                   </span>
                 </li>

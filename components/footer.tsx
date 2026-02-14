@@ -1,8 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Github, MapPin } from "lucide-react"
+import { Language, translations } from "@/lib/i18n"
 
-export function Footer() {
+export function Footer({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const t = translations[safeLang].footer
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
@@ -20,7 +23,7 @@ export function Footer() {
         </div>
 
         <p className="text-center text-sm text-muted-foreground">
-          Made with care &mdash; 全面发展的现代化浏览器 &middot; MIT License
+          {safeLang === 'zh' ? '用心制作 — 全面发展的现代化浏览器 · MIT License' : 'Made with care — Modern browser for all · MIT License'}
         </p>
 
         <div className="flex items-center gap-4">
@@ -29,7 +32,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-foreground"
-            aria-label="站点地图"
+            aria-label={safeLang === 'zh' ? '站点地图' : 'Sitemap'}
           >
             <MapPin className="h-5 w-5" />
           </Link>
@@ -38,7 +41,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-foreground"
-            aria-label="GitHub"
+            aria-label={t.github}
           >
             <Github className="h-5 w-5" />
           </Link>

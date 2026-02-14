@@ -12,8 +12,9 @@ import {
   Shield,
   LayoutGrid,
 } from "lucide-react"
+import { Language, translations } from "@/lib/i18n"
 
-const mainFeatures = [
+const mainFeaturesZh = [
   {
     icon: Brain,
     title: "知识捕获",
@@ -40,7 +41,34 @@ const mainFeatures = [
   },
 ]
 
-const subFeatures = [
+const mainFeaturesEn = [
+  {
+    icon: Brain,
+    title: "Knowledge Capture",
+    description:
+      "Automatically extract key information while browsing, intelligently categorize and establish logical connections between knowledge points, all data stored locally to ensure privacy and security.",
+    color: "text-primary",
+    bg: "bg-accent",
+  },
+  {
+    icon: FileText,
+    title: "Smart Summarization",
+    description:
+      "Generate core content summaries with one click, automatically extract 5 key points, 3 key term explanations, and 2 practical application cases.",
+    color: "text-blue-600",
+    bg: "bg-blue-50",
+  },
+  {
+    icon: LayoutGrid,
+    title: "Structured Export",
+    description:
+      "Support export to PDF, HTML and other formats, automatically generate directory navigation and beautiful layout, support multiple customizable templates.",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50",
+  },
+]
+
+const subFeaturesZh = [
   {
     icon: Search,
     title: "ChickRubGo 搜索",
@@ -70,6 +98,39 @@ const subFeatures = [
     icon: Keyboard,
     title: "快捷键支持",
     description: "丰富的快捷键支持，提升操作效率",
+  },
+]
+
+const subFeaturesEn = [
+  {
+    icon: Search,
+    title: "ChickRubGo Search",
+    description: "Integrated localized search engine, better suited for Chinese users",
+  },
+  {
+    icon: Zap,
+    title: "Fast Launch",
+    description: "Optimized launch speed, open browser in seconds",
+  },
+  {
+    icon: Bookmark,
+    title: "Bookmark Management",
+    description: "Convenient bookmark management and quick access",
+  },
+  {
+    icon: Moon,
+    title: "Dark Mode",
+    description: "Built-in dark mode to protect your eyes",
+  },
+  {
+    icon: Shield,
+    title: "Privacy First",
+    description: "Privacy-first design, local data storage",
+  },
+  {
+    icon: Keyboard,
+    title: "Keyboard Shortcuts",
+    description: "Rich keyboard shortcuts to improve efficiency",
   },
 ]
 
@@ -201,19 +262,24 @@ function SubFeatureCard({ feature, idx }: { feature: any; idx: number }) {
   )
 }
 
-export function FeaturesSection() {
+export function FeaturesSection({ lang }: { lang: Language }) {
+  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const mainFeatures = safeLang === 'zh' ? mainFeaturesZh : mainFeaturesEn
+  const subFeatures = safeLang === 'zh' ? subFeaturesZh : subFeaturesEn
+  const t = translations[safeLang].features
+
   return (
     <section id="features" className="bg-[hsl(var(--feature-bg))] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center" data-aos="fade-up">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-            核心功能
+            {t.title}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
-            不只是浏览器，更是你的知识助手
+            {safeLang === 'zh' ? '不只是浏览器，更是你的知识助手' : 'More than a browser, your knowledge assistant'}
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            三大核心功能，将碎片化浏览转化为系统化知识
+            {safeLang === 'zh' ? '三大核心功能，将碎片化浏览转化为系统化知识' : 'Three core features to transform fragmented browsing into systematic knowledge'}
           </p>
         </div>
 
