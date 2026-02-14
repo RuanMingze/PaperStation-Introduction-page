@@ -96,7 +96,7 @@ pnpm run start
 ## 联系方式
 
 - **GitHub**：[https://github.com/RuanMingze/PaperStation-browser](https://github.com/RuanMingze/PaperStation-browser)
-- **官方网站**：[https://paperstation.app](https://paperstation.app)
+- **官方网站**：[https://ruanmingze.github.io/PaperStation-Introduction-page/](https://ruanmingze.github.io/PaperStation-Introduction-page/)
 
 ---
 
