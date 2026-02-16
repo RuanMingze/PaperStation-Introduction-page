@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 function FAQItem({ item, index }: { item: any; index: number }) {
   const itemRef = useRef<HTMLDivElement>(null)

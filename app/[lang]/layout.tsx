@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { translations, Language } from '@/lib/i18n'
+import { translations, Language } from '@/lib/i18n-client'
 
 export async function generateMetadata({
   params

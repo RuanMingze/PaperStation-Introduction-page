@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { useAnimationStore } from "@/lib/animation-state"
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 const wordsZh = ["聪明", "快速", "智能", "丰富", "安全", "高效", "便捷", "稳定", "现代", "强大", "灵活", "优雅", "可靠", "轻量", "专业", "创新"]
 const wordsEn = ["smart", "fast", "intelligent", "rich", "secure", "efficient", "convenient", "stable", "modern", "powerful", "flexible", "elegant", "reliable", "lightweight", "professional", "innovative"]

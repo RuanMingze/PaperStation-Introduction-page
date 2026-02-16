@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Github, MapPin, Languages } from "lucide-react"
-import { Language, translations } from "@/lib/i18n"
+import { Language, translations } from "@/lib/i18n-client"
 
 export function Footer({ lang }: { lang: Language }) {
   const safeLang = lang || 'en'

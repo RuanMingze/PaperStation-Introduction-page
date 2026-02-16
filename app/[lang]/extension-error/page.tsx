@@ -1,6 +1,6 @@
 import { use } from 'react'
 import { AlertTriangle, Bug, Zap, RefreshCw } from 'lucide-react'
-import type { Language } from '@/lib/i18n'
+import type { Language } from '@/lib/i18n-client'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ExtensionErrorEffects } from '@/components/extension-error-effects'

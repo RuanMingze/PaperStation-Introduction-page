@@ -1,4 +1,4 @@
-import { translations, Language } from '@/lib/i18n'
+import { translations, Language } from '@/lib/i18n-client'
 import Link from 'next/link'
 import { ArrowLeft, Mail, Globe } from 'lucide-react'
 import { Navbar } from '@/components/navbar'

@@ -10,7 +10,7 @@ import {
   Package
 } from 'lucide-react'
 import { useTheme } from "next-themes"
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 const techStackZh = [
   { name: "Electron 40", description: "跨平台桌面应用框架", icon: Monitor, color: "text-blue-500" },

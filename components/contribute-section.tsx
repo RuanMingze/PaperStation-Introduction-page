@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { GitBranch, GitPullRequest, Users, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 const contributeStepsZh = [
   { step: "1", label: "Fork 本仓库" },

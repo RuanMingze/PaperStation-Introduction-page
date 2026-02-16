@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Download, ArrowLeft, Package, Monitor, Smartphone, HardDrive } from 'lucide-react'
-import { translations, Language } from '@/lib/i18n'
+import { translations, Language } from '@/lib/i18n-client'
 
 const BASE_URL = 'https://github.com/RuanMingze/PaperStation-Browser/releases/download/1.1.5/'
 

@@ -8,7 +8,7 @@ import { DownloadSection } from "@/components/download-section"
 import { ContributeSection } from "@/components/contribute-section"
 import { FAQSection } from "@/components/faq-section"
 import { Footer } from "@/components/footer"
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 export async function generateStaticParams() {
   return [

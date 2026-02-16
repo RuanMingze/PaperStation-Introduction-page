@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Shield, Lock, Eye, Database, Key, CheckCircle } from 'lucide-react'
 import { useTheme } from "next-themes"
-import { Language } from "@/lib/i18n"
+import { Language } from "@/lib/i18n-client"
 
 const securityFeaturesZh = [
   {
