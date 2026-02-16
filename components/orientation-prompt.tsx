@@ -87,6 +87,9 @@ export function OrientationPrompt() {
         <p className="text-sm text-muted-foreground">
           请旋转您的设备以获得最佳浏览体验
         </p>
+        <p className="text-xs text-muted-foreground">
+          提示：连续点击左侧竖屏手机图标 3 次可忽略此提示
+        </p>
       </div>
     </div>
   )

@@ -123,7 +123,7 @@ const faqItemsEn = [
 ]
 
 export function FAQSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang
   const faqItems = safeLang === 'zh' ? faqItemsZh : faqItemsEn
 
   return (

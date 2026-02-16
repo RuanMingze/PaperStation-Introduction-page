@@ -2,31 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Check, X, Minus } from "lucide-react"
-import { Language, translations } from "@/lib/i18n"
-
-const comparisonsZh = [
-  { feature: "知识捕获模式", chrome: "none", paper: "full" },
-  { feature: "智能总结功能", chrome: "none", paper: "full" },
-  { feature: "结构化知识导出", chrome: "none", paper: "full" },
-  { feature: "ChickRubGo 本土化搜索", chrome: "none", paper: "full" },
-  { feature: "中文全本地化", chrome: "none", paper: "full" },
-  { feature: "深色模式", chrome: "full", paper: "full" },
-  { feature: "现代界面", chrome: "full", paper: "full" },
-  { feature: "隐私优先设计", chrome: "partial", paper: "full" },
-  { feature: "轻量高效", chrome: "partial", paper: "full" },
-]
-
-const comparisonsEn = [
-  { feature: "Knowledge Capture Mode", chrome: "none", paper: "full" },
-  { feature: "Smart Summarization", chrome: "none", paper: "full" },
-  { feature: "Structured Knowledge Export", chrome: "none", paper: "full" },
-  { feature: "ChickRubGo Localized Search", chrome: "none", paper: "full" },
-  { feature: "Full Chinese Localization", chrome: "none", paper: "full" },
-  { feature: "Dark Mode", chrome: "full", paper: "full" },
-  { feature: "Modern Interface", chrome: "full", paper: "full" },
-  { feature: "Privacy-First Design", chrome: "partial", paper: "full" },
-  { feature: "Lightweight & Efficient", chrome: "partial", paper: "full" },
-]
+import { Language, translations } from "@/lib/i18n-client"
 
 function StatusIcon({ status }: { status: string }) {
   if (status === "full")
@@ -49,8 +25,8 @@ function StatusIcon({ status }: { status: string }) {
 }
 
 export function ComparisonSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
-  const comparisons = safeLang === 'zh' ? comparisonsZh : comparisonsEn
+  const safeLang = lang || 'en'
+  const t = translations[safeLang]?.comparison || translations['en'].comparison
   const tableRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -114,20 +90,20 @@ export function ComparisonSection({ lang }: { lang: Language }) {
           )}
           {/* Header */}
           <div className="grid grid-cols-3 border-b border-border bg-secondary/50 px-6 py-4">
-            <div className="text-sm font-semibold text-foreground">{safeLang === 'zh' ? '功能特性' : 'Features'}</div>
+            <div className="text-sm font-semibold text-foreground">{t.feature}</div>
             <div className="text-center text-sm font-semibold text-muted-foreground">
-              Chrome / Edge
+              {t.chrome}
             </div>
             <div className="text-center text-sm font-semibold text-primary">
-              PaperStation
+              {t.paper}
             </div>
           </div>
 
           {/* Rows */}
-          {comparisons.map((row, idx) => (
+          {t.features.map((row, idx) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-3 items-center px-6 py-4 ${idx !== comparisons.length - 1 ? "border-b border-border" : ""} ${idx % 2 === 0 ? "bg-card" : "bg-secondary/20"}`}
+              className={`grid grid-cols-3 items-center px-6 py-4 ${idx !== t.features.length - 1 ? "border-b border-border" : ""} ${idx % 2 === 0 ? "bg-card" : "bg-secondary/20"}`}
             >
               <div className="text-sm text-foreground">{row.feature}</div>
               <div className="flex justify-center">

@@ -8,7 +8,15 @@ import { ExtensionErrorEffects } from '@/components/extension-error-effects'
 export async function generateStaticParams() {
   return [
     { lang: 'zh' },
-    { lang: 'en' }
+    { lang: 'en' },
+    { lang: 'ja' },
+    { lang: 'ko' },
+    { lang: 'es' },
+    { lang: 'fr' },
+    { lang: 'de' },
+    { lang: 'ru' },
+    { lang: 'pt' },
+    { lang: 'ar' }
   ]
 }
 
@@ -41,6 +49,110 @@ export default function ExtensionErrorPage({ params }: { params: Promise<{ lang:
       solution3: 'If that doesn\'t work, try accessing in incognito mode',
       humorTip: "Don't worry, this isn't PaperStation's fault - your browser extension is just being naughty!",
       backHome: 'Back to Home'
+    },
+    ja: {
+      title: 'あちゃー！罠に落ちちゃった！',
+      subtitle: 'ブラウザ拡張機能が穴を掘って、私たちが落ちちゃった！',
+      errorType: 'エラータイプ',
+      errorMessage: 'エラーメッセージ',
+      problemSource: '問題の原因',
+      howToFix: 'どうやってこの穴から出るの？',
+      solution1: '一時的にこのブラウザ拡張機能を無効にする',
+      solution2: 'ページを更新してみる',
+      solution3: 'それでもダメなら、シークレットモードでアクセスしてみる',
+      humorTip: '心配しないで、これはPaperStationのせいじゃないよ。ブラウザ拡張機能が悪戯してるだけ！',
+      backHome: 'ホームに戻る'
+    },
+    ko: {
+      title: '이런! 함정에 빠졌어요!',
+      subtitle: '브라우저 확장 프로그램이 구멍을 파서 우리가 빠졌어요!',
+      errorType: '오류 유형',
+      errorMessage: '오류 메시지',
+      problemSource: '문제 원인',
+      howToFix: '이 함정에서 어떻게 빠져나갈까요?',
+      solution1: '일시적으로 이 브라우저 확장 프로그램을 비활성화하세요',
+      solution2: '페이지를 새로고침해 보세요',
+      solution3: '그래도 안 되면 시크릿 모드로 접속해 보세요',
+      humorTip: '걱정하지 마세요, 이건 PaperStation의 잘못이 아니에요. 브라우저 확장 프로그램이 장난을 치는 거예요!',
+      backHome: '홈으로 돌아가기'
+    },
+    es: {
+      title: '¡Ups! ¡Cayimos en una trampa!',
+      subtitle: '¡Tu extensión del navegador cavó un agujero y caímos en él!',
+      errorType: 'Tipo de error',
+      errorMessage: 'Mensaje de error',
+      problemSource: 'Fuente del problema',
+      howToFix: '¿Cómo salir de esta trampa?',
+      solution1: 'Deshabilita temporalmente esta extensión del navegador',
+      solution2: 'Intenta actualizar la página',
+      solution3: 'Si eso no funciona, intenta acceder en modo incógnito',
+      humorTip: '¡No te preocupes, esto no es culpa de PaperStation - tu extensión del navegador solo está siendo traviesa!',
+      backHome: 'Volver al inicio'
+    },
+    fr: {
+      title: 'Oups! Nous sommes tombés dans un piège!',
+      subtitle: 'Votre extension de navigateur a creusé un trou et nous y sommes tombés!',
+      errorType: 'Type d\'erreur',
+      errorMessage: 'Message d\'erreur',
+      problemSource: 'Source du problème',
+      howToFix: 'Comment sortir de ce piège?',
+      solution1: 'Désactivez temporairement cette extension de navigateur',
+      solution2: 'Essayez de rafraîchir la page',
+      solution3: 'Si ça ne marche pas, essayez d\'accéder en mode navigation privée',
+      humorTip: 'Ne vous inquiétez pas, ce n\'est pas la faute de PaperStation - votre extension de navigateur est juste coquine!',
+      backHome: 'Retour à l\'accueil'
+    },
+    de: {
+      title: 'Hoppla! Wir sind in eine Falle getappt!',
+      subtitle: 'Deine Browser-Erweiterung hat ein Loch gegraben und wir sind hineingefallen!',
+      errorType: 'Fehlertyp',
+      errorMessage: 'Fehlermeldung',
+      problemSource: 'Problemquelle',
+      howToFix: 'Wie kommen wir aus dieser Falle heraus?',
+      solution1: 'Deaktiviere diese Browser-Erweiterung vorübergehend',
+      solution2: 'Versuche, die Seite neu zu laden',
+      solution3: 'Wenn das nicht funktioniert, versuche im Inkognito-Modus zuzugreifen',
+      humorTip: 'Keine Sorge, das ist nicht PaperStations Schuld - deine Browser-Erweiterung ist nur frech!',
+      backHome: 'Zurück zur Startseite'
+    },
+    ru: {
+      title: 'Ой! Мы попали в ловушку!',
+      subtitle: 'Ваше расширение браузера выкопало яму, и мы упали в неё!',
+      errorType: 'Тип ошибки',
+      errorMessage: 'Сообщение об ошибке',
+      problemSource: 'Источник проблемы',
+      howToFix: 'Как выбраться из этой ловушки?',
+      solution1: 'Временно отключите это расширение браузера',
+      solution2: 'Попробуйте обновить страницу',
+      solution3: 'Если это не поможет, попробуйте зайти в режиме инкогнито',
+      humorTip: 'Не волнуйтесь, это не вина PaperStation - ваше расширение браузера просто хулиганит!',
+      backHome: 'Вернуться на главную'
+    },
+    pt: {
+      title: 'Ops! Caímos numa armadilha!',
+      subtitle: 'Sua extensão do navegador cavou um buraco e caímos nele!',
+      errorType: 'Tipo de erro',
+      errorMessage: 'Mensagem de erro',
+      problemSource: 'Fonte do problema',
+      howToFix: 'Como sair desta armadilha?',
+      solution1: 'Desative temporariamente esta extensão do navegador',
+      solution2: 'Tente atualizar a página',
+      solution3: 'Se isso não funcionar, tente acessar no modo anônimo',
+      humorTip: 'Não se preocupe, isso não é culpa do PaperStation - sua extensão do navegador está apenas sendo travessa!',
+      backHome: 'Voltar ao início'
+    },
+    ar: {
+      title: 'أوه! وقعنا في فخ!',
+      subtitle: 'امتداد المتصفح الخاص بك حفر حفرة ووقعنا فيها!',
+      errorType: 'نوع الخطأ',
+      errorMessage: 'رسالة الخطأ',
+      problemSource: 'مصدر المشكلة',
+      howToFix: 'كيف نخرج من هذا الفخ؟',
+      solution1: 'عطل هذا امتداد المتصفح مؤقتاً',
+      solution2: 'حاول تحديث الصفحة',
+      solution3: 'إذا لم ينجح ذلك، حاول الدخول في وضع التصفح الخاص',
+      humorTip: 'لا تقلق، هذا ليس خطأ PaperStation - امتداد المتصفح الخاص بك فقط يلعب!',
+      backHome: 'العودة إلى الصفحة الرئيسية'
     }
   }[lang] || {
     title: 'Oops! We fell into a trap!',

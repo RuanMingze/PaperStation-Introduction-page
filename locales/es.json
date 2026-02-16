@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "title": "PaperStation Browser - Navegador moderno para gestión del conocimiento",
+    "description": "PaperStation Browser es un navegador moderno basado en Electron+Chromium, con captura de conocimiento, resumen inteligente y exportación estructurada."
+  },
+  "hero": {
+    "title": "Gestión de conocimiento, navegación inteligente",
+    "subtitle": "PaperStation Browser es un navegador moderno basado en Electron+Chromium, con captura de conocimiento, resumen inteligente y exportación estructurada.",
+    "download": "Descargar PaperStation",
+    "viewFeatures": "Ver características",
+    "learnMore": "Saber más"
+  },
+  "features": {
+    "title": "Características principales",
+    "subtitle": "Navegador profesional para trabajadores del conocimiento",
+    "subtitle2": "Más que un navegador, tu asistente de conocimiento",
+    "subtitle3": "Tres funciones core para transformar la navegación fragmentada en conocimiento sistemático",
+    "capture": {
+      "title": "Captura de conocimiento",
+      "description": "Captura de contenido web con un solo clic, compatible con texto, imágenes, enlaces y más"
+    },
+    "summary": {
+      "title": "Resumen inteligente",
+      "description": "Resumen inteligente impulsado por IA para extraer rápidamente el contenido core de los artículos"
+    },
+    "export": {
+      "title": "Exportación estructurada",
+      "description": "Exporta a Markdown, PDF, Word y otros formatos"
+    },
+    "mainFeatures": [
+      {
+        "title": "Captura de conocimiento",
+        "description": "Extrae automáticamente información clave mientras navegas, categoriza inteligentemente y establece conexiones lógicas entre puntos de conocimiento, todos los datos se almacenan localmente para garantizar la privacidad y la seguridad.",
+        "color": "text-primary",
+        "bg": "bg-accent"
+      },
+      {
+        "title": "Resumen inteligente",
+        "description": "Genera resúmenes del contenido core de la página con un solo clic, extrae automáticamente 5 puntos clave, 3 explicaciones de términos clave y 2 casos de aplicación prácticos.",
+        "color": "text-blue-600",
+        "bg": "bg-blue-50"
+      },
+      {
+        "title": "Exportación estructurada",
+        "description": "Soporta exportación a PDF, HTML y otros formatos, genera automáticamente navegación de directorio y hermoso diseño, admite múltiples plantillas personalizables.",
+        "color": "text-emerald-600",
+        "bg": "bg-emerald-50"
+      }
+    ],
+    "subFeatures": [
+      {
+        "title": "Búsqueda ChickRubGo",
+        "description": "Motor de búsqueda localizado integrado, mejor adaptado a las necesidades de los usuarios chinos"
+      },
+      {
+        "title": "Inicio rápido",
+        "description": "Velocidad de inicio optimizada, navegador abierto en segundos"
+      },
+      {
+        "title": "Gestión de marcadores",
+        "description": "Gestión conveniente de marcadores y acceso rápido"
+      },
+      {
+        "title": "Modo oscuro",
+        "description": "Modo oscuro integrado, protege tu vista"
+      },
+      {
+        "title": "Privacidad primero",
+        "description": "Diseño centrado en la privacidad, almacenamiento local de datos"
+      },
+      {
+        "title": "Atajos de teclado",
+        "description": "Amplia compatibilidad con atajos de teclado, mejora la eficiencia operativa"
+      }
+    ]
+  },
+  "download": {
+    "title": "Gestión de conocimiento, un clic",
+    "description": "Descarga PaperStation Browser para experimentar una experiencia de navegación moderna con captura de conocimiento, resumen inteligente y exportación estructurada.",
+    "button": "Descargar PaperStation"
+  },
+  "contribute": {
+    "title": "Contribuir",
+    "subtitle": "Construir un mejor navegador juntos",
+    "description": "PaperStation Browser es un proyecto de código abierto. ¡Bienvenido a contribuir código, informar problemas y hacer sugerencias.",
+    "contribute": "Contribuir código",
+    "report": "Informar problemas",
+    "suggest": "Hacer sugerencias"
+  },
+  "footer": {
+    "rights": "© 2024 PaperStation. Todos los derechos reservados.",
+    "github": "GitHub",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio"
+  },
+  "downloadPage": {
+    "title": "Descargar PaperStation Browser",
+    "subtitle": "Versión 1.1.5 - Elige la versión adecuada para tu sistema",
+    "back": "Volver a casa",
+    "unknownSystem": "Se detectó un sistema operativo no compatible",
+    "unknownSystemDesc": "Tu sistema operativo puede no ser compatible, pero aún puedes descargar paquetes para otros sistemas",
+    "versionInfo": "Información de versión",
+    "basedOnElectron": "Basado en Electron 40.1.0",
+    "basedOnChromium": "Basado en Chromium más reciente",
+    "mitLicense": "Licencia MIT de código abierto",
+    "windows": "Windows",
+    "macos": "macOS",
+    "linux": "Linux",
+    "windowsInstall": "1. Descarga el instalador .exe o el archivo .zip",
+    "windowsInstall2": "2. Haz doble clic en el archivo .exe para ejecutar el instalador",
+    "windowsInstall3": "3. Sigue el asistente de instalación para completar",
+    "windowsInstall4": "4. Ejecuta desde el escritorio o el menú Inicio",
+    "macosInstall": "1. Descarga el instalador .dmg o el archivo .zip",
+    "macosInstall2": "2. Haz doble clic en el archivo .dmg para abrir la imagen de disco",
+    "macosInstall3": "3. Arrastra la aplicación a la carpeta Aplicaciones",
+    "macosInstall4": "4. Ejecuta desde Launchpad",
+    "linuxInstall": "1. Descarga el archivo .AppImage o el paquete .snap",
+    "linuxInstall2": "2. Agrega permiso de ejecución: chmod +x *.AppImage",
+    "linuxInstall3": "3. Ejecuta AppImage: ./PaperStation*.AppImage",
+    "linuxInstall4": "4. O instala usando snap: sudo snap install",
+    "community": "Contribución comunitaria",
+    "communityDesc": "Basado en Flowmora Browser, bienvenido a enviar Issues y Pull Requests"
+  },
+  "language": {
+    "title": "Seleccionar idioma",
+    "subtitle": "Elige tu idioma preferido",
+    "currentLanguage": "Idioma actual",
+    "availableLanguages": "Idiomas disponibles",
+    "chinese": "中文",
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "spanish": "Español",
+    "french": "Français",
+    "german": "Deutsch",
+    "russian": "Русский",
+    "portuguese": "Português",
+    "arabic": "العربية",
+    "switchTo": "Cambiar a",
+    "requestLanguage": "Solicitar más idiomas",
+    "requestLanguageDesc": "¿Quieres más soporte de idiomas? ¡Envíanos un correo electrónico para solicitarlo!",
+    "sendEmail": "Enviar correo de solicitud",
+    "back": "Volver a casa"
+  },
+  "tabs": {
+    "tab1": {
+      "title": "Gestión fluida de pestañas",
+      "description": "Administra múltiples pestañas fácilmente, cambia eficientemente y mejora tu experiencia de navegación"
+    },
+    "tab2": {
+      "title": "Ricas opciones de configuración",
+      "description": "Personaliza tu experiencia de navegación para satisfacer tus diversas necesidades"
+    }
+  },
+  "comparison": {
+    "title": "Comparación de características",
+    "subtitle": "Comparación de características entre PaperStation Browser y Chrome",
+    "feature": "Característica",
+    "chrome": "Chrome",
+    "paper": "PaperStation",
+    "features": [
+      { "feature": "Modo de captura de conocimiento", "chrome": "none", "paper": "full" },
+      { "feature": "Resumen inteligente", "chrome": "none", "paper": "full" },
+      { "feature": "Exportación estructurada de conocimiento", "chrome": "none", "paper": "full" },
+      { "feature": "Búsqueda localizada ChickRubGo", "chrome": "none", "paper": "full" },
+      { "feature": "Localización completa en chino", "chrome": "none", "paper": "full" },
+      { "feature": "Modo oscuro", "chrome": "full", "paper": "full" },
+      { "feature": "Interfaz moderna", "chrome": "full", "paper": "full" },
+      { "feature": "Diseño centrado en la privacidad", "chrome": "partial", "paper": "full" },
+      { "feature": "Ligero y eficiente", "chrome": "partial", "paper": "full" }
+    ]
+  },
+  "navbar": {
+    "features": "Características",
+    "comparison": "Comparación",
+    "tech": "Stack técnico",
+    "install": "Instalación",
+    "contribute": "Contribuir",
+    "download": "Descargar",
+    "closeMenu": "Cerrar menú",
+    "openMenu": "Abrir menú",
+    "developedBy": "Desarrollado por Ruanm"
+  }
+}

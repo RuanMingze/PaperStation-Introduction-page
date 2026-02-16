@@ -9,6 +9,7 @@ import {
   Database,
   Package
 } from 'lucide-react'
+import { useTheme } from "next-themes"
 import { Language } from "@/lib/i18n"
 
 const techStackZh = [
@@ -33,6 +34,14 @@ function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
+  const isDark = mounted && theme === 'dark'
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -79,7 +88,7 @@ function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
         />
       )}
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary">
-        <tech.icon className={`h-6 w-6 ${tech.color}`} />
+        <tech.icon className={`h-6 w-6 ${isDark ? 'text-muted-foreground' : tech.color}`} />
       </div>
       <div>
         <h4 className="font-semibold text-foreground">{tech.name}</h4>
@@ -92,7 +101,7 @@ function TechStackCard({ tech, idx }: { tech: any; idx: number }) {
 }
 
 export function TechStackSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang
   const techStack = safeLang === 'zh' ? techStackZh : techStackEn
 
   return (

@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "title": "PaperStation Browser - 知識管理のための現代的なブラウザ",
+    "description": "PaperStation BrowserはElectron+Chromiumベースの現代的ブラウザで、知識キャプチャ、スマート要約、構造化エクスポートを特徴としています。"
+  },
+  "hero": {
+    "title": "知識管理、スマートブラウジング",
+    "subtitle": "PaperStation BrowserはElectron+Chromiumベースの現代的ブラウザで、知識キャプチャ、スマート要約、構造化エクスポートを特徴としています。",
+    "download": "PaperStationをダウンロード",
+    "viewFeatures": "機能を見る",
+    "learnMore": "詳しく知る"
+  },
+  "features": {
+    "title": "コア機能",
+    "subtitle": "知識ワーカーのためのプロフェッショナルブラウザ",
+    "subtitle2": "ブラウザ以上、あなたの知識アシスタント",
+    "subtitle3": "3つのコア機能で、断片的なブラウジングを体系的な知識に変換",
+    "capture": {
+      "title": "知識キャプチャ",
+      "description": "ワンクリックでWebコンテンツをキャプチャ、テキスト、画像、リンクなど複数のフォーマットをサポート"
+    },
+    "summary": {
+      "title": "スマート要約",
+      "description": "AI駆動のスマート要約で、記事のコアコンテンツを素早く抽出"
+    },
+    "export": {
+      "title": "構造化エクスポート",
+      "description": "Markdown、PDF、Wordなど複数のフォーマットでエクスポート可能"
+    },
+    "mainFeatures": [
+      {
+        "title": "知識キャプチャ",
+        "description": "ブラウジング中に自動的に重要情報を抽出し、知識ポイント間の論理的接続を確立し、すべてのデータをローカルに保存してプライバシーとセキュリティを確保。",
+        "color": "text-primary",
+        "bg": "bg-accent"
+      },
+      {
+        "title": "スマート要約",
+        "description": "ワンクリックでページのコアコンテンツの要約を生成し、自動的に5つのコアポイント、3つの重要な用語の説明、2つの実用的なアプリケーションケースを抽出。",
+        "color": "text-blue-600",
+        "bg": "bg-blue-50"
+      },
+      {
+        "title": "構造化エクスポート",
+        "description": "PDF、HTMLなどの形式へのエクスポートをサポートし、自動的にディレクトリナビゲーションと美しいレイアウトを生成し、複数のカスタマイズ可能なテンプレートをサポート。",
+        "color": "text-emerald-600",
+        "bg": "bg-emerald-50"
+      }
+    ],
+    "subFeatures": [
+      {
+        "title": "ChickRubGo 検索",
+        "description": "ローカライズされた検索エンジンを統合、中国語ユーザーのニーズにより適合"
+      },
+      {
+        "title": "高速起動",
+        "description": "起動速度を最適化、数秒でブラウザを起動"
+      },
+      {
+        "title": "ブックマーク管理",
+        "description": "便利なブックマーク管理と高速アクセス"
+      },
+      {
+        "title": "ダークモード",
+        "description": "内蔵ダークモード、視力を保護"
+      },
+      {
+        "title": "プライバシー優先",
+        "description": "プライバシー優先設計、ローカルデータ保存"
+      },
+      {
+        "title": "キーボードショートカット",
+        "description": "豊富なキーボードショートカットサポート、操作効率を向上"
+      }
+    ]
+  },
+  "download": {
+    "title": "知識管理、ワンクリックで",
+    "description": "PaperStation Browserをダウンロードして、知識キャプチャ、スマート要約、構造化エクスポートを備えた現代的なブラウジング体験をお楽しみください。",
+    "button": "PaperStationをダウンロード"
+  },
+  "contribute": {
+    "title": "貢献する",
+    "subtitle": "一緒により良いブラウザを構築しましょう",
+    "description": "PaperStation Browserはオープンソースプロジェクトです。コードの貢献、問題の報告、提案をお待ちしています。",
+    "contribute": "コードを貢献する",
+    "report": "問題を報告する",
+    "suggest": "提案する"
+  },
+  "footer": {
+    "rights": "© 2024 PaperStation. All rights reserved.",
+    "github": "GitHub",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "downloadPage": {
+    "title": "PaperStation Browserをダウンロード",
+    "subtitle": "バージョン 1.1.5 - お使いのシステムに合ったバージョンを選択",
+    "back": "ホームに戻る",
+    "unknownSystem": "サポートされていないオペレーティングシステムが検出されました",
+    "unknownSystemDesc": "お使いのオペレーティングシステムはサポートされていない可能性がありますが、他のシステム用のパッケージをダウンロードすることはできます",
+    "versionInfo": "バージョン情報",
+    "basedOnElectron": "Electron 40.1.0 ベース",
+    "basedOnChromium": "最新のChromiumベース",
+    "mitLicense": "MITオープンソースライセンス",
+    "windows": "Windows",
+    "macos": "macOS",
+    "linux": "Linux",
+    "windowsInstall": "1. .exeインストーラーまたは.zipアーカイブをダウンロード",
+    "windowsInstall2": "2. .exeファイルをダブルクリックしてインストーラーを実行",
+    "windowsInstall3": "3. インストールウィザードに従ってインストールを完了",
+    "windowsInstall4": "4. デスクトップまたはスタートメニューから実行",
+    "macosInstall": "1. .dmgインストーラーまたは.zipアーカイブをダウンロード",
+    "macosInstall2": "2. .dmgファイルをダブルクリックしてディスクイメージを開く",
+    "macosInstall3": "3. アプリケーションをApplicationsフォルダにドラッグ",
+    "macosInstall4": "4. Launchpadから実行",
+    "linuxInstall": "1. .AppImageファイルまたは.snapパッケージをダウンロード",
+    "linuxInstall2": "2. 実行権限を追加: chmod +x *.AppImage",
+    "linuxInstall3": "3. AppImageを実行: ./PaperStation*.AppImage",
+    "linuxInstall4": "4. またはsnapを使用してインストール: sudo snap install",
+    "community": "コミュニティの貢献",
+    "communityDesc": "Flowmora Browserに基づいています。IssuesとPull Requestsの送信をお待ちしています"
+  },
+  "language": {
+    "title": "言語を選択",
+    "subtitle": "お好みの言語を選択してください",
+    "currentLanguage": "現在の言語",
+    "availableLanguages": "利用可能な言語",
+    "chinese": "中文",
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "spanish": "Español",
+    "french": "Français",
+    "german": "Deutsch",
+    "russian": "Русский",
+    "portuguese": "Português",
+    "arabic": "العربية",
+    "switchTo": "切り替える",
+    "requestLanguage": "より多くの言語をリクエスト",
+    "requestLanguageDesc": "より多くの言語サポートが必要ですか？リクエストするためにメールを送信してください！",
+    "sendEmail": "リクエストメールを送信",
+    "back": "ホームに戻る"
+  },
+  "tabs": {
+    "tab1": {
+      "title": "タブのスムーズな管理",
+      "description": "複数のタブを簡単に管理し、効率的に切り替え、ブラウジング体験を向上させます"
+    },
+    "tab2": {
+      "title": "豊富な設定オプション",
+      "description": "ブラウザの体験をパーソナライズして、様々なニーズに応えます"
+    }
+  },
+  "comparison": {
+    "title": "機能比較",
+    "subtitle": "PaperStation Browser と Chrome の機能比較",
+    "feature": "機能",
+    "chrome": "Chrome",
+    "paper": "PaperStation",
+    "features": [
+      { "feature": "知識キャプチャモード", "chrome": "none", "paper": "full" },
+      { "feature": "スマート要約", "chrome": "none", "paper": "full" },
+      { "feature": "構造化された知識エクスポート", "chrome": "none", "paper": "full" },
+      { "feature": "ChickRubGo ローカライズされた検索", "chrome": "none", "paper": "full" },
+      { "feature": "完全な中国語ローカライゼーション", "chrome": "none", "paper": "full" },
+      { "feature": "ダークモード", "chrome": "full", "paper": "full" },
+      { "feature": "モダンなインターフェース", "chrome": "full", "paper": "full" },
+      { "feature": "プライバシー優先の設計", "chrome": "partial", "paper": "full" },
+      { "feature": "軽量で効率的", "chrome": "partial", "paper": "full" }
+    ]
+  },
+  "navbar": {
+    "features": "機能",
+    "comparison": "比較",
+    "tech": "技術スタック",
+    "install": "インストール",
+    "contribute": "貢献",
+    "download": "ダウンロード",
+    "closeMenu": "メニューを閉じる",
+    "openMenu": "メニューを開く",
+    "developedBy": "Ruanm によって開発"
+  }
+}

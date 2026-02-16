@@ -68,7 +68,7 @@ function ContributeCard({ children, className = "", ...props }: { children: Reac
 }
 
 export function ContributeSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang
   const contributeSteps = safeLang === 'zh' ? contributeStepsZh : contributeStepsEn
 
   return (

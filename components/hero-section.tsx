@@ -6,7 +6,7 @@ import { Download, Github, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RotatingText } from "@/components/rotating-text"
 import { useAnimationStore } from "@/lib/animation-state"
-import { Language, translations } from "@/lib/i18n"
+import { Language, translations } from "@/lib/i18n-client"
 
 const screenshots = [
   { src: "/images/screenshot.png", alt: "PaperStation Browser 界面预览 1" },
@@ -17,11 +17,11 @@ const screenshots = [
 ]
 
 export function HeroSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang || 'en'
   const [currentIndex, setCurrentIndex] = useState(0)
   const [progress, setProgress] = useState(0)
   const { isPaused } = useAnimationStore()
-  const t = translations[safeLang].hero
+  const t = translations[safeLang]?.hero || translations['en'].hero
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index)
@@ -73,6 +73,58 @@ export function HeroSection({ lang }: { lang: Language }) {
                 更
                 <RotatingText lang={safeLang} />
                 的浏览器
+              </>
+            ) : safeLang === 'ja' ? (
+              <>
+                <span className="text-primary">あなたのために作られた</span>
+                <br />
+                より
+                <RotatingText lang={safeLang} />
+                なブラウザ
+              </>
+            ) : safeLang === 'ko' ? (
+              <>
+                <span className="text-primary">당신을 위해 제작된</span>
+                <br />
+                더
+                <RotatingText lang={safeLang} />
+                한 브라우저
+              </>
+            ) : safeLang === 'es' ? (
+              <>
+                <span className="text-primary">Hecho para ti</span>
+                <br />
+                Un navegador más <RotatingText lang={safeLang} />
+              </>
+            ) : safeLang === 'fr' ? (
+              <>
+                <span className="text-primary">Conçu pour vous</span>
+                <br />
+                Un navigateur plus <RotatingText lang={safeLang} />
+              </>
+            ) : safeLang === 'de' ? (
+              <>
+                <span className="text-primary">Für dich gebaut</span>
+                <br />
+                Ein <RotatingText lang={safeLang} /> Browser
+              </>
+            ) : safeLang === 'ru' ? (
+              <>
+                <span className="text-primary">Сделано для вас</span>
+                <br />
+                Браузер более <RotatingText lang={safeLang} />
+              </>
+            ) : safeLang === 'pt' ? (
+              <>
+                <span className="text-primary">Feito para você</span>
+                <br />
+                Um navegador mais <RotatingText lang={safeLang} />
+              </>
+            ) : safeLang === 'ar' ? (
+              <>
+                <span className="text-primary">مصنوع خاص بكم</span>
+                <br />
+                متصفح أكثر <RotatingText lang={safeLang} />
               </>
             ) : (
               <>
@@ -159,22 +211,23 @@ export function HeroSection({ lang }: { lang: Language }) {
 }
 
 export function TabsSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang || 'en'
   const [currentTab, setCurrentTab] = useState(0)
   const [isInView, setIsInView] = useState(false)
   const sectionRef = useRef(null)
   const { isPaused } = useAnimationStore()
+  const t = translations[safeLang]?.tabs || translations['en'].tabs
 
   const tabs = [
     {
-      title: safeLang === 'zh' ? "标签页流畅多开" : "Smooth Tab Management",
-      description: safeLang === 'zh' ? "轻松管理多个标签页，高效切换，提升浏览体验" : "Easily manage multiple tabs, switch efficiently, and enhance browsing experience",
+      title: t.tab1.title,
+      description: t.tab1.description,
       video: "/Videos/1.mp4",
       url: "PaperStation Browser"
     },
     {
-      title: safeLang === 'zh' ? "丰富的设置选项" : "Rich Settings Options",
-      description: safeLang === 'zh' ? "个性化定制您的浏览器体验，满足您的各种需求" : "Personalize your browser experience to meet your various needs",
+      title: t.tab2.title,
+      description: t.tab2.description,
       video: "/Videos/Settings.mp4",
       url: "paperstation://Settings"
     }

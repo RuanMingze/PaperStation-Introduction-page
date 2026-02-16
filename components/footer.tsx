@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Github, MapPin } from "lucide-react"
+import { Github, MapPin, Languages } from "lucide-react"
 import { Language, translations } from "@/lib/i18n"
 
 export function Footer({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
-  const t = translations[safeLang].footer
+  const safeLang = lang || 'en'
+  const t = translations[safeLang]?.footer || translations['en'].footer
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
@@ -27,6 +27,13 @@ export function Footer({ lang }: { lang: Language }) {
         </p>
 
         <div className="flex items-center gap-4">
+          <Link
+            href={`/${safeLang}/language`}
+            className="text-muted-foreground transition-colors hover:text-foreground"
+            aria-label={safeLang === 'zh' ? '选择语言' : 'Select Language'}
+          >
+            <Languages className="h-5 w-5" />
+          </Link>
           <Link
             href="/sitemap.xml"
             target="_blank"

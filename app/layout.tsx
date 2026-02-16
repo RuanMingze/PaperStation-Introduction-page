@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
+import { ThemeProvider } from 'next-themes'
 import { AosInit } from '@/components/aos-init'
 import { AosControl } from '@/components/aos-control'
 import { OrientationPrompt } from '@/components/orientation-prompt'
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <head>
         {/* 早期错误捕获脚本，在页面加载的最早阶段运行 */}
         <script dangerouslySetInnerHTML={{
@@ -123,12 +124,14 @@ export default function RootLayout({
         }} />
       </head>
       <body className="font-sans antialiased">
-        <GlobalErrorHandler />
-        <NavigationProgress />
-        {children}
-        <AosInit />
-        <AosControl />
-        <OrientationPrompt />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <GlobalErrorHandler />
+          <NavigationProgress />
+          {children}
+          <AosInit />
+          <AosControl />
+          <OrientationPrompt />
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -58,7 +58,15 @@ const downloads = [
 export async function generateStaticParams() {
   return [
     { lang: 'zh' },
-    { lang: 'en' }
+    { lang: 'en' },
+    { lang: 'ja' },
+    { lang: 'ko' },
+    { lang: 'es' },
+    { lang: 'fr' },
+    { lang: 'de' },
+    { lang: 'ru' },
+    { lang: 'pt' },
+    { lang: 'ar' }
   ]
 }
 

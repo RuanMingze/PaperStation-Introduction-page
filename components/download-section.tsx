@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Download } from 'lucide-react'
-import { Language, translations } from '@/lib/i18n'
+import { Language, translations } from '@/lib/i18n-client'
 
 export function DownloadSection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang || 'en'
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
-  const t = translations[safeLang].download
+  const t = translations[safeLang]?.download || translations['en'].download
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

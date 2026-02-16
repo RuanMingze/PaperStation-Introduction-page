@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "title": "PaperStation Browser - 지식 관리용 현대 브라우저",
+    "description": "PaperStation Browser는 Electron+Chromium 기반의 현대 브라우저로, 지식 캡처, 스마트 요약, 구조화된 내보내기 기능을 제공합니다."
+  },
+  "hero": {
+    "title": "지식 관리, 스마트 브라우징",
+    "subtitle": "PaperStation Browser는 Electron+Chromium 기반의 현대 브라우저로, 지식 캡처, 스마트 요약, 구조화된 내보내기 기능을 제공합니다.",
+    "download": "PaperStation 다운로드",
+    "viewFeatures": "기능 보기",
+    "learnMore": "자세히 알아보기"
+  },
+  "features": {
+    "title": "핵심 기능",
+    "subtitle": "지식 근로자를 위한 전문 브라우저",
+    "subtitle2": "브라우저 이상, 당신의 지식 비서",
+    "subtitle3": "세 가지 핵심 기능으로 파편화된 브라우징을 체계적인 지식으로 변환",
+    "capture": {
+      "title": "지식 캡처",
+      "description": "한 번의 클릭으로 웹 콘텐츠를 캡처하고, 텍스트, 이미지, 링크 등 다양한 형식을 지원합니다"
+    },
+    "summary": {
+      "title": "스마트 요약",
+      "description": "AI 기반 스마트 요약으로 기사의 핵심 내용을 빠르게 추출합니다"
+    },
+    "export": {
+      "title": "구조화된 내보내기",
+      "description": "Markdown, PDF, Word 등 다양한 형식으로 내보내기 가능"
+    },
+    "mainFeatures": [
+      {
+        "title": "지식 캡처",
+        "description": "브라우징 중에 자동으로 중요한 정보를 추출하고, 지식 포인트 간의 논리적 연결을 설정하며, 모든 데이터를 로컬에 저장하여 개인정보 보호와 보안을 확보합니다.",
+        "color": "text-primary",
+        "bg": "bg-accent"
+      },
+      {
+        "title": "스마트 요약",
+        "description": "한 번의 클릭으로 페이지의 핵심 내용 요약을 생성하고, 자동으로 5개의 핵심 포인트, 3개의 주요 용어 설명, 2개의 실용적인 적용 사례를 추출합니다.",
+        "color": "text-blue-600",
+        "bg": "bg-blue-50"
+      },
+      {
+        "title": "구조화된 내보내기",
+        "description": "PDF, HTML 등 다양한 형식으로의 내보내기를 지원하고, 자동으로 디렉토리 탐색 및 아름다운 레이아웃을 생성하며, 여러 사용자 정의 가능한 템플릿을 지원합니다.",
+        "color": "text-emerald-600",
+        "bg": "bg-emerald-50"
+      }
+    ],
+    "subFeatures": [
+      {
+        "title": "ChickRubGo 검색",
+        "description": "로컬화된 검색 엔진을 통합, 중국어 사용자의 필요에 더 적합"
+      },
+      {
+        "title": "빠른 시작",
+        "description": "시작 속도 최적화, 몇 초 만에 브라우저 시작"
+      },
+      {
+        "title": "북마크 관리",
+        "description": "편리한 북마크 관리와 빠른 액세스"
+      },
+      {
+        "title": "다크 모드",
+        "description": "내장 다크 모드, 시력을 보호"
+      },
+      {
+        "title": "개인정보 우선",
+        "description": "개인정보 우선 디자인, 로컬 데이터 저장"
+      },
+      {
+        "title": "단축키 지원",
+        "description": "풍부한 단축키 지원, 작업 효율 향상"
+      }
+    ]
+  },
+  "download": {
+    "title": "지식 관리, 한 번의 클릭으로",
+    "description": "PaperStation Browser를 다운로드하여 지식 캡처, 스마트 요약, 구조화된 내보내기를 갖춘 현대적인 브라우징 경험을 즐겨보세요.",
+    "button": "PaperStation 다운로드"
+  },
+  "contribute": {
+    "title": "기여하기",
+    "subtitle": "함께 더 나은 브라우저를 구축하세요",
+    "description": "PaperStation Browser는 오픈 소스 프로젝트입니다. 코드 기여, 문제 보고, 제안을 환영합니다.",
+    "contribute": "코드 기여",
+    "report": "문제 보고",
+    "suggest": "제안 하기"
+  },
+  "footer": {
+    "rights": "© 2024 PaperStation. All rights reserved.",
+    "github": "GitHub",
+    "privacy": "개인정보 정책",
+    "terms": "서비스 약관"
+  },
+  "downloadPage": {
+    "title": "PaperStation Browser 다운로드",
+    "subtitle": "버전 1.1.5 - 시스템에 적합한 버전 선택",
+    "back": "홈으로 돌아가기",
+    "unknownSystem": "지원되지 않는 운영 체제 감지됨",
+    "unknownSystemDesc": "귀하의 운영 체제는 지원되지 않을 수 있지만, 다른 시스템용 패키지를 다운로드할 수 있습니다",
+    "versionInfo": "버전 정보",
+    "basedOnElectron": "Electron 40.1.0 기반",
+    "basedOnChromium": "최신 Chromium 기반",
+    "mitLicense": "MIT 오픈 소스 라이선스",
+    "windows": "Windows",
+    "macos": "macOS",
+    "linux": "Linux",
+    "windowsInstall": "1. .exe 설치 프로그램 또는 .zip 아카이브 다운로드",
+    "windowsInstall2": "2. .exe 파일을 두 번 클릭하여 설치 프로그램 실행",
+    "windowsInstall3": "3. 설치 마법사를 따르면 설치가 완료됩니다",
+    "windowsInstall4": "4. 바탕 화면 또는 시작 메뉴에서 실행",
+    "macosInstall": "1. .dmg 설치 프로그램 또는 .zip 아카이브 다운로드",
+    "macosInstall2": "2. .dmg 파일을 두 번 클릭하여 디스크 이미지 열기",
+    "macosInstall3": "3. 애플리케이션을 Applications 폴더로 드래그",
+    "macosInstall4": "4. Launchpad에서 실행",
+    "linuxInstall": "1. .AppImage 파일 또는 .snap 패키지 다운로드",
+    "linuxInstall2": "2. 실행 권한 추가: chmod +x *.AppImage",
+    "linuxInstall3": "3. AppImage 실행: ./PaperStation*.AppImage",
+    "linuxInstall4": "4. 또는 snap을 사용하여 설치: sudo snap install",
+    "community": "커뮤니티 기여",
+    "communityDesc": "Flowmora Browser를 기반으로 합니다. Issues 및 Pull Requests 제출을 환영합니다"
+  },
+  "language": {
+    "title": "언어 선택",
+    "subtitle": "선호하는 언어를 선택하세요",
+    "currentLanguage": "현재 언어",
+    "availableLanguages": "사용 가능한 언어",
+    "chinese": "中文",
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "spanish": "Español",
+    "french": "Français",
+    "german": "Deutsch",
+    "russian": "Русский",
+    "portuguese": "Português",
+    "arabic": "العربية",
+    "switchTo": "전환",
+    "requestLanguage": "더 많은 언어 요청",
+    "requestLanguageDesc": "더 많은 언어 지원이 필요하십니까? 요청하려면 이메일을 보내세요!",
+    "sendEmail": "요청 이메일 보내기",
+    "back": "홈으로 돌아가기"
+  },
+  "tabs": {
+    "tab1": {
+      "title": "부드러운 탭 관리",
+      "description": "여러 탭을 쉽게 관리하고 효율적으로 전환하여 브라우징 경험을 향상시킵니다"
+    },
+    "tab2": {
+      "title": "풍부한 설정 옵션",
+      "description": "브라우저 경험을 개인화하여 다양한 필요에 맞게 조정하세요"
+    }
+  },
+  "comparison": {
+    "title": "기능 비교",
+    "subtitle": "PaperStation Browser와 Chrome의 기능 비교",
+    "feature": "기능",
+    "chrome": "Chrome",
+    "paper": "PaperStation",
+    "features": [
+      { "feature": "지식 캡처 모드", "chrome": "none", "paper": "full" },
+      { "feature": "스마트 요약", "chrome": "none", "paper": "full" },
+      { "feature": "구조화된 지식 내보내기", "chrome": "none", "paper": "full" },
+      { "feature": "ChickRubGo 현지화된 검색", "chrome": "none", "paper": "full" },
+      { "feature": "완전한 중국어 현지화", "chrome": "none", "paper": "full" },
+      { "feature": "다크 모드", "chrome": "full", "paper": "full" },
+      { "feature": "현대적인 인터페이스", "chrome": "full", "paper": "full" },
+      { "feature": "프라이버시 우선 설계", "chrome": "partial", "paper": "full" },
+      { "feature": "가볍고 효율적", "chrome": "partial", "paper": "full" }
+    ]
+  },
+  "navbar": {
+    "features": "핵심 기능",
+    "comparison": "비교",
+    "tech": "기술 스택",
+    "install": "설치",
+    "contribute": "기여",
+    "download": "다운로드",
+    "closeMenu": "메뉴 닫기",
+    "openMenu": "메뉴 열기",
+    "developedBy": "Ruanm이 개발"
+  }
+}

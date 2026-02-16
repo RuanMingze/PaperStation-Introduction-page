@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Shield, Lock, Eye, Database, Key, CheckCircle } from 'lucide-react'
+import { useTheme } from "next-themes"
 import { Language } from "@/lib/i18n"
 
 const securityFeaturesZh = [
@@ -98,6 +99,14 @@ function SecurityCard({ feature, idx }: { feature: any; idx: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
+  const isDark = mounted && theme === 'dark'
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -143,8 +152,8 @@ function SecurityCard({ feature, idx }: { feature: any; idx: number }) {
           }}
         />
       )}
-      <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl ${feature.bg}`}>
-        <feature.icon className={`h-7 w-7 ${feature.color}`} />
+      <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl ${isDark ? 'bg-muted' : feature.bg}`}>
+        <feature.icon className={`h-7 w-7 ${isDark ? 'text-muted-foreground' : feature.color}`} />
       </div>
       <h3 className="text-xl font-semibold text-foreground">
         {feature.title}
@@ -157,7 +166,7 @@ function SecurityCard({ feature, idx }: { feature: any; idx: number }) {
 }
 
 export function SecuritySection({ lang }: { lang: Language }) {
-  const safeLang = (lang === 'zh' || lang === 'en') ? lang : 'zh'
+  const safeLang = lang
   const securityFeatures = safeLang === 'zh' ? securityFeaturesZh : securityFeaturesEn
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
