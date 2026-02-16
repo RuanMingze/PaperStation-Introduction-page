@@ -2,56 +2,56 @@ import Link from 'next/link'
 import { Download, ArrowLeft, Package, Monitor, Smartphone, HardDrive } from 'lucide-react'
 import { translations, Language } from '@/lib/i18n-client'
 
-const BASE_URL = 'https://github.com/RuanMingze/PaperStation-Browser/releases/download/1.1.5/'
+const BASE_URL = 'https://github.com/RuanMingze/PaperStation-Browser/releases/download/1.1.6/'
 
 const downloads = [
   {
-    name: 'Setup_PaperStation_Win64_1.1.5.exe',
+    name: 'PaperStation_Win64_1.1.6.exe',
     platform: 'Windows',
     description: 'Windows 安装程序',
     descriptionEn: 'Windows Installer',
     icon: <Monitor className="h-6 w-6" />,
-    size: '196 MB'
+    size: '114 MB'
   },
   {
-    name: 'PaperStation_Win64_1.1.5.zip',
+    name: 'PaperStation_Win64_1.1.6.zip',
     platform: 'Windows',
     description: 'Windows 压缩包',
     descriptionEn: 'Windows Archive',
     icon: <Monitor className="h-6 w-6" />,
-    size: '234 MB'
+    size: '150 MB'
   },
   {
-    name: 'Papstation-1.1.5-arm64.dmg',
+    name: 'PaperStation-1.1.6-arm64.dmg',
     platform: 'macOS',
     description: 'macOS ARM64 安装包',
     descriptionEn: 'macOS ARM64 Installer',
     icon: <Package className="h-6 w-6" />,
-    size: '103 MB'
+    size: '120 MB'
   },
   {
-    name: 'Papstation-1.1.5-arm64-mac.zip',
+    name: 'PaperStation-1.1.6-arm64-mac.zip',
     platform: 'macOS',
     description: 'macOS ARM64 压缩包',
     descriptionEn: 'macOS ARM64 Archive',
     icon: <Package className="h-6 w-6" />,
-    size: '108 MB'
+    size: '126 MB'
   },
   {
-    name: 'Papstation-1.1.5.AppImage',
+    name: 'PaperStation-1.1.6.AppImage',
     platform: 'Linux',
     description: 'Linux AppImage',
     descriptionEn: 'Linux AppImage',
     icon: <HardDrive className="h-6 w-6" />,
-    size: '90.8 MB'
+    size: '108 MB'
   },
   {
-    name: 'papstation-browser_1.1.5_amd64.snap',
+    name: 'PaperStation_1.1.6_amd64.snap',
     platform: 'Linux',
     description: 'Linux Snap 包',
     descriptionEn: 'Linux Snap Package',
     icon: <HardDrive className="h-6 w-6" />,
-    size: '98.8 MB'
+    size: '117 MB'
   }
 ]
 
