@@ -1,17 +1,34 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+export const dynamic = "force-static"
 
-export async function GET(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+const baseUrl = 'http://localhost:3000'
+
+export async function GET(request: Request) {
+  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${baseUrl}/</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/download</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/extension-error</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>`
   
-  // 获取请求头中的语言信息
-  const acceptLanguage = request.headers.get('accept-language') || ''
-  const language = acceptLanguage.split(',')[0].split('-')[0].toLowerCase()
-  
-  // 根据语言信息重定向到对应的路径
-  const lang = language === 'zh' || language === 'zh-cn' ? 'zh' : 'en'
-  const url = request.nextUrl.clone()
-  url.pathname = `/${lang}${pathname}`
-  
-  return NextResponse.redirect(url)
+  return new Response(xmlContent, {
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  })
 }

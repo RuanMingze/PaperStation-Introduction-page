@@ -6,7 +6,6 @@ import { Download, Github, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RotatingText } from "@/components/rotating-text"
 import { useAnimationStore } from "@/lib/animation-state"
-import { Language, translations } from "@/lib/i18n-client"
 
 const screenshots = [
   { src: "/images/screenshot.png", alt: "PaperStation Browser 界面预览 1" },
@@ -16,12 +15,10 @@ const screenshots = [
   { src: "/images/screenshot5.png", alt: "PaperStation Browser 界面预览 5" },
 ]
 
-export function HeroSection({ lang }: { lang: Language }) {
-  const safeLang = lang || 'en'
+export function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [progress, setProgress] = useState(0)
   const { isPaused } = useAnimationStore()
-  const t = translations[safeLang]?.hero || translations['en'].hero
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index)
@@ -66,73 +63,11 @@ export function HeroSection({ lang }: { lang: Language }) {
             data-aos-delay="100"
             className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            {safeLang === 'zh' ? (
-              <>
-                <span className="text-primary">为你打造</span>
-                <br />
-                更
-                <RotatingText lang={safeLang} />
-                的浏览器
-              </>
-            ) : safeLang === 'ja' ? (
-              <>
-                <span className="text-primary">あなたのために作られた</span>
-                <br />
-                より
-                <RotatingText lang={safeLang} />
-                なブラウザ
-              </>
-            ) : safeLang === 'ko' ? (
-              <>
-                <span className="text-primary">당신을 위해 제작된</span>
-                <br />
-                더
-                <RotatingText lang={safeLang} />
-                한 브라우저
-              </>
-            ) : safeLang === 'es' ? (
-              <>
-                <span className="text-primary">Hecho para ti</span>
-                <br />
-                Un navegador más <RotatingText lang={safeLang} />
-              </>
-            ) : safeLang === 'fr' ? (
-              <>
-                <span className="text-primary">Conçu pour vous</span>
-                <br />
-                Un navigateur plus <RotatingText lang={safeLang} />
-              </>
-            ) : safeLang === 'de' ? (
-              <>
-                <span className="text-primary">Für dich gebaut</span>
-                <br />
-                Ein <RotatingText lang={safeLang} /> Browser
-              </>
-            ) : safeLang === 'ru' ? (
-              <>
-                <span className="text-primary">Сделано для вас</span>
-                <br />
-                Браузер более <RotatingText lang={safeLang} />
-              </>
-            ) : safeLang === 'pt' ? (
-              <>
-                <span className="text-primary">Feito para você</span>
-                <br />
-                Um navegador mais <RotatingText lang={safeLang} />
-              </>
-            ) : safeLang === 'ar' ? (
-              <>
-                <span className="text-primary">مصنوع خاص بكم</span>
-                <br />
-                متصفح أكثر <RotatingText lang={safeLang} />
-              </>
-            ) : (
-              <>
-                <span className="text-primary">Built for you</span>
-                <br />
-                A more <RotatingText lang={safeLang} /> browser
-              </>
-            )}
+            <span className="text-primary">为你打造</span>
+            <br />
+            更
+            <RotatingText />
+            的浏览器
           </h1>
 
           <p
@@ -140,7 +75,7 @@ export function HeroSection({ lang }: { lang: Language }) {
             data-aos-delay="200"
             className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground"
           >
-            {t.subtitle}
+            PaperStation 是一款基于 Electron 和 Chromium 的现代化浏览器，专为追求极致体验的用户打造
           </p>
 
           <div
@@ -149,9 +84,9 @@ export function HeroSection({ lang }: { lang: Language }) {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button asChild size="lg" className="gap-2 rounded-full px-8 text-base">
-              <a href={`/${safeLang}/download`} target="_blank" rel="noopener noreferrer">
+              <a href="/download" target="_blank" rel="noopener noreferrer">
                 <Download className="h-5 w-5" />
-                {safeLang === 'zh' ? '下载' : 'Download'}
+                下载
               </a>
             </Button>
           </div>
@@ -163,7 +98,6 @@ export function HeroSection({ lang }: { lang: Language }) {
           className="relative mx-auto mt-16 w-full max-w-5xl"
         >
           <div className="flex items-center justify-between">
-            {/* 截图容器 */}
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-primary/5 flex-1">
               <div className="flex items-center gap-2 border-b border-border bg-secondary/60 px-4 py-3">
                 <div className="flex gap-1.5">
@@ -186,7 +120,6 @@ export function HeroSection({ lang }: { lang: Language }) {
               </div>
             </div>
             
-            {/* 右侧进度条 */}
             <div className="ml-8 h-64 w-2 rounded-full bg-border">
               <div 
                 className="h-full rounded-full bg-primary transition-all duration-100 ease-linear"
@@ -210,24 +143,22 @@ export function HeroSection({ lang }: { lang: Language }) {
   )
 }
 
-export function TabsSection({ lang }: { lang: Language }) {
-  const safeLang = lang || 'en'
+export function TabsSection() {
   const [currentTab, setCurrentTab] = useState(0)
   const [isInView, setIsInView] = useState(false)
   const sectionRef = useRef(null)
   const { isPaused } = useAnimationStore()
-  const t = translations[safeLang]?.tabs || translations['en'].tabs
 
   const tabs = [
     {
-      title: t.tab1.title,
-      description: t.tab1.description,
+      title: "新标签页",
+      description: "美观的起始页，提供快速访问常用网站的功能",
       video: "/Videos/1.mp4",
       url: "PaperStation Browser"
     },
     {
-      title: t.tab2.title,
-      description: t.tab2.description,
+      title: "设置页面",
+      description: "丰富的设置选项，个性化您的浏览体验",
       video: "/Videos/Settings.mp4",
       url: "paperstation://Settings"
     }

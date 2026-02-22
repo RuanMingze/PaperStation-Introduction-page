@@ -2,14 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Download } from 'lucide-react'
-import { Language, translations } from '@/lib/i18n-client'
 
-export function DownloadSection({ lang }: { lang: Language }) {
-  const safeLang = lang || 'en'
+export function DownloadSection() {
   const cardRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
-  const t = translations[safeLang]?.download || translations['en'].download
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,18 +57,18 @@ export function DownloadSection({ lang }: { lang: Language }) {
             </div>
           </div>
           <h2 className="text-3xl font-bold text-foreground mb-6" data-aos="fade-up" data-aos-delay="200">
-            {t.title}
+            立即下载 PaperStation
           </h2>
-          <p className="text-lg text-muted-foreground mb-8" data-aos="fade-up" data-aos-delay="300">
-            {t.description}
+          <p className="text-lg leading-relaxed text-muted-foreground mb-8" data-aos="fade-up" data-aos-delay="300">
+            体验全新的知识管理浏览器，开启高效浏览之旅
           </p>
           <a
-            href={`/${safeLang}/download`}
+            href="/download"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/5 transition-all duration-200"
             data-aos="fade-up" data-aos-delay="400"
           >
             <Download className="h-5 w-5" />
-            {t.button}
+            立即下载
           </a>
         </div>
       </div>

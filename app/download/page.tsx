@@ -1,109 +1,60 @@
-'use client'
-
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 import { Download, ArrowLeft, Package, Monitor, Smartphone, HardDrive } from 'lucide-react'
 
-const BASE_URL = 'https://github.com/RuanMingze/PaperStation-Browser/releases/download/1.1.5/'
+const BASE_URL = 'https://github.com/RuanMingze/PaperStation-Browser/releases/download/1.1.6/'
 
 const downloads = [
   {
-    name: 'Setup_PaperStation_Win64_1.1.5.exe',
+    name: 'PaperStation_Win64_1.1.6.exe',
     platform: 'Windows',
     description: 'Windows 安装程序',
+    descriptionEn: 'Windows Installer',
     icon: <Monitor className="h-6 w-6" />,
-    size: '196 MB'
+    size: '114 MB'
   },
   {
-    name: 'PaperStation_Win64_1.1.5.zip',
+    name: 'PaperStation_Win64_1.1.6.zip',
     platform: 'Windows',
     description: 'Windows 压缩包',
+    descriptionEn: 'Windows Archive',
     icon: <Monitor className="h-6 w-6" />,
-    size: '234 MB'
+    size: '150 MB'
   },
   {
-    name: 'Papstation-1.1.5-arm64.dmg',
+    name: 'PaperStation-1.1.6-arm64.dmg',
     platform: 'macOS',
     description: 'macOS ARM64 安装包',
+    descriptionEn: 'macOS ARM64 Installer',
     icon: <Package className="h-6 w-6" />,
-    size: '103 MB'
+    size: '120 MB'
   },
   {
-    name: 'Papstation-1.1.5-arm64-mac.zip',
+    name: 'PaperStation-1.1.6-arm64-mac.zip',
     platform: 'macOS',
     description: 'macOS ARM64 压缩包',
+    descriptionEn: 'macOS ARM64 Archive',
     icon: <Package className="h-6 w-6" />,
+    size: '126 MB'
+  },
+  {
+    name: 'PaperStation-1.1.6.AppImage',
+    platform: 'Linux',
+    description: 'Linux AppImage',
+    descriptionEn: 'Linux AppImage',
+    icon: <HardDrive className="h-6 w-6" />,
     size: '108 MB'
   },
   {
-    name: 'Papstation-1.1.5.AppImage',
-    platform: 'Linux',
-    description: 'Linux AppImage',
-    icon: <HardDrive className="h-6 w-6" />,
-    size: '90.8 MB'
-  },
-  {
-    name: 'papstation-browser_1.1.5_amd64.snap',
+    name: 'PaperStation_1.1.6_amd64.snap',
     platform: 'Linux',
     description: 'Linux Snap 包',
+    descriptionEn: 'Linux Snap Package',
     icon: <HardDrive className="h-6 w-6" />,
-    size: '98.8 MB'
+    size: '117 MB'
   }
 ]
 
 export default function DownloadPage() {
-  const [sortedDownloads, setSortedDownloads] = useState(downloads)
-  const [isUnknownSystem, setIsUnknownSystem] = useState(false)
-
-  useEffect(() => {
-    // 检测用户系统
-    const detectSystem = () => {
-      const userAgent = navigator.userAgent.toLowerCase()
-      let detectedPlatform = ''
-
-      // 输出请求头信息
-      console.log('=== 请求头信息 ===')
-      console.log('User-Agent:', navigator.userAgent)
-      console.log('Platform:', navigator.platform)
-      console.log('Language:', navigator.language)
-      console.log('Cookies Enabled:', navigator.cookieEnabled)
-      console.log('Do Not Track:', navigator.doNotTrack)
-      console.log('==================')
-
-      if (userAgent.includes('win')) {
-        detectedPlatform = 'Windows'
-      } else if (userAgent.includes('mac')) {
-        detectedPlatform = 'macOS'
-      } else if (userAgent.includes('linux')) {
-        detectedPlatform = 'Linux'
-      }
-
-      // 输出系统检测结果
-      console.log('=== 系统检测结果 ===')
-      console.log('检测到的系统:', detectedPlatform || '未知系统')
-      console.log('==================')
-
-      return detectedPlatform
-    }
-
-    const platform = detectSystem()
-
-    // 检查是否为未知系统
-    if (!platform) {
-      setIsUnknownSystem(true)
-    }
-
-    // 根据检测到的系统排序下载链接
-    if (platform) {
-      const sorted = [...downloads].sort((a, b) => {
-        if (a.platform === platform && b.platform !== platform) return -1
-        if (a.platform !== platform && b.platform === platform) return 1
-        return 0
-      })
-      setSortedDownloads(sorted)
-    }
-  }, [])
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1">
@@ -123,26 +74,15 @@ export default function DownloadPage() {
               </div>
             </div>
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              下载 PaperStation Browser
+              下载 PaperStation
             </h1>
             <p className="text-xl text-muted-foreground">
-              版本 1.1.5 - 选择适合你系统的版本
+              选择适合您操作系统的版本
             </p>
           </div>
 
-          {isUnknownSystem && (
-            <div className="mb-8 rounded-xl border border-yellow-500/20 bg-yellow-500/10 p-4">
-              <p className="text-sm font-medium text-yellow-700 dark:text-yellow-300">
-                未检测到支持的操作系统
-              </p>
-              <p className="mt-1 text-xs text-yellow-600 dark:text-yellow-400">
-                您的操作系统可能不受支持，但仍可为其他系统下载安装包
-              </p>
-            </div>
-          )}
-
           <div className="grid gap-4">
-            {sortedDownloads.map((download) => (
+            {downloads.map((download) => (
               <a
                 key={download.name}
                 href={`${BASE_URL}${download.name}`}
@@ -177,16 +117,16 @@ export default function DownloadPage() {
             ))}
           </div>
 
-            <div className="p-6 bg-muted/50 rounded-lg">
+          <div className="p-6 bg-muted/50 rounded-lg">
               <h3 className="font-semibold text-foreground mb-4">版本信息</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  基于 Electron 40.1.0
+                  基于 Electron 构建
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  基于 Chromium 最新版本
+                  使用 Chromium 内核
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -202,10 +142,10 @@ export default function DownloadPage() {
                   <h3 className="font-semibold text-foreground">Windows</h3>
                 </div>
                 <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>1. 下载 .exe 安装程序或 .zip 压缩包</p>
-                  <p>2. 双击 .exe 文件运行安装程序</p>
-                  <p>3. 按照安装向导完成安装</p>
-                  <p>4. 从桌面或开始菜单启动</p>
+                  <p>双击安装程序，按照提示完成安装</p>
+                  <p>或解压压缩包，运行 PaperStation.exe</p>
+                  <p>支持 Windows 10/11</p>
+                  <p>推荐使用安装程序版本</p>
                 </div>
               </div>
 
@@ -215,10 +155,10 @@ export default function DownloadPage() {
                   <h3 className="font-semibold text-foreground">macOS</h3>
                 </div>
                 <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>1. 下载 .dmg 安装包或 .zip 压缩包</p>
-                  <p>2. 双击 .dmg 文件打开磁盘映像</p>
-                  <p>3. 将应用拖拽到应用程序文件夹</p>
-                  <p>4. 从启动台启动应用</p>
+                  <p>双击 .dmg 文件，将应用拖到 Applications</p>
+                  <p>或解压压缩包，运行 PaperStation.app</p>
+                  <p>支持 macOS 11+ (Apple Silicon)</p>
+                  <p>首次运行需要右键打开</p>
                 </div>
               </div>
 
@@ -228,20 +168,20 @@ export default function DownloadPage() {
                   <h3 className="font-semibold text-foreground">Linux</h3>
                 </div>
                 <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>1. 下载 .AppImage 文件或 .snap 包</p>
-                  <p>2. 添加执行权限: chmod +x *.AppImage</p>
-                  <p>3. 运行 AppImage: ./PaperStation*.AppImage</p>
-                  <p>4. 或使用 snap 安装: sudo snap install</p>
+                  <p>AppImage：添加执行权限后直接运行</p>
+                  <p>Snap：使用 snap install 命令安装</p>
+                  <p>支持主流 Linux 发行版</p>
+                  <p>推荐使用 AppImage 版本</p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-xl border border-primary/20 bg-accent p-4">
               <p className="text-sm font-medium text-accent-foreground">
-                社区贡献
+                加入社区
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                基于 Flowmora Browser 二次开发，欢迎提交 Issue 和 Pull Request
+                遇到问题？欢迎在 GitHub 提交 Issue 或参与讨论
               </p>
             </div>
           </div>

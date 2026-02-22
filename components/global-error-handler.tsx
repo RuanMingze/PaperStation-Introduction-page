@@ -32,14 +32,7 @@ export function GlobalErrorHandler() {
         console.log('检测到浏览器扩展错误，重定向到错误页面');
         event.preventDefault();
         
-        // 使用绝对路径，确保包含当前语言前缀
-        const currentPath = window.location.pathname;
-        var lang = 'zh'; // 默认中文
-        if (currentPath.indexOf('/en') === 0) {
-          lang = 'en';
-        }
-        
-        window.location.href = `/${lang}/extension-error`;
+        window.location.href = '/extension-error';
       }
     }
 
@@ -56,14 +49,7 @@ export function GlobalErrorHandler() {
         console.log('检测到浏览器扩展错误，重定向到错误页面');
         event.preventDefault();
         
-        // 使用绝对路径，确保包含当前语言前缀
-        const currentPath = window.location.pathname;
-        var lang = 'zh'; // 默认中文
-        if (currentPath.indexOf('/en') === 0) {
-          lang = 'en';
-        }
-        
-        window.location.href = `/${lang}/extension-error`;
+        window.location.href = '/extension-error';
       }
     }
 

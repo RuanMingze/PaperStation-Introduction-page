@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Language } from "@/lib/i18n-client"
 
 function FAQItem({ item, index }: { item: any; index: number }) {
   const itemRef = useRef<HTMLDivElement>(null)
@@ -68,7 +67,7 @@ function FAQItem({ item, index }: { item: any; index: number }) {
   )
 }
 
-const faqItemsZh = [
+const faqItems = [
   {
     question: 'PaperStation Browser 与其他浏览器有什么不同？',
     answer: 'PaperStation Browser 基于 Electron+Chromium 打造，专注于知识管理功能，拥有独特的知识捕获、智能总结和结构化导出功能，帮助用户在浏览过程中高效积累知识。'
@@ -95,44 +94,14 @@ const faqItemsZh = [
   },
 ]
 
-const faqItemsEn = [
-  {
-    question: 'How is PaperStation Browser different from other browsers?',
-    answer: 'PaperStation Browser is built on Electron+Chromium and focuses on knowledge management features. It has unique knowledge capture, smart summarization, and structured export functions to help users efficiently accumulate knowledge while browsing.'
-  },
-  {
-    question: 'What platforms does PaperStation Browser support?',
-    answer: 'Supports all platforms, you can choose the version suitable for your system on the download page.'
-  },
-  {
-    question: 'How to use the knowledge capture feature?',
-    answer: 'While browsing web pages, click the knowledge capture button in the upper right corner of the browser, or use the shortcut Ctrl+Shift+C. The system will automatically identify and extract important information from the page, and you can edit and categorize the captured content.'
-  },
-  {
-    question: 'How does the smart summarization feature work?',
-    answer: 'The smart summarization feature is based on advanced natural language processing technology that can automatically analyze web page content, extract key information, and generate concise summaries to help you quickly understand the main content of the page.'
-  },
-  {
-    question: 'Does it support importing and exporting knowledge content?',
-    answer: 'Yes, PaperStation Browser supports knowledge export in multiple formats, including Markdown, PDF, and JSON. You can also import content from other knowledge bases into PaperStation.'
-  },
-  {
-    question: 'How is the browser performance?',
-    answer: 'Although PaperStation Browser has added knowledge management features, it maintains performance comparable to mainstream browsers through code and resource optimization, while providing richer features.'
-  },
-]
-
-export function FAQSection({ lang }: { lang: Language }) {
-  const safeLang = lang
-  const faqItems = safeLang === 'zh' ? faqItemsZh : faqItemsEn
-
+export function FAQSection() {
   return (
     <section className="bg-background py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div data-aos="fade-up" className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">{safeLang === 'zh' ? '常见问题' : 'FAQ'}</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            {safeLang === 'zh' ? '关于 PaperStation Browser 的常见问题解答' : 'Frequently asked questions about PaperStation Browser'}
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">常见问题</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            关于 PaperStation Browser 的常见问题解答
           </p>
         </div>
 

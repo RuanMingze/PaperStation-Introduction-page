@@ -43,17 +43,9 @@ export function getEarlyErrorHandlingScript() {
             event.preventDefault();
             event.stopPropagation();
             
-            // 使用绝对路径，确保包含当前语言前缀
-            const currentPath = window.location.pathname;
-            var lang = 'zh'; // 默认中文
-            if (currentPath.indexOf('/en') === 0) {
-              lang = 'en';
-            }
-            
-            var redirectUrl = '/' + lang + '/extension-error';
+            var redirectUrl = '/extension-error';
             console.log('重定向到:', redirectUrl);
             
-            // 立即重定向
             window.location.replace(redirectUrl);
           }
         });
@@ -71,17 +63,9 @@ export function getEarlyErrorHandlingScript() {
             event.preventDefault();
             event.stopPropagation();
             
-            // 使用绝对路径，确保包含当前语言前缀
-            const currentPath = window.location.pathname;
-            var lang = 'zh'; // 默认中文
-            if (currentPath.indexOf('/en') === 0) {
-              lang = 'en';
-            }
-            
-            var redirectUrl = '/' + lang + '/extension-error';
+            var redirectUrl = '/extension-error';
             console.log('重定向到:', redirectUrl);
             
-            // 立即重定向
             window.location.replace(redirectUrl);
           }
         });

@@ -1,11 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Github, MapPin, Languages } from "lucide-react"
-import { Language, translations } from "@/lib/i18n-client"
 
-export function Footer({ lang }: { lang: Language }) {
-  const safeLang = lang || 'en'
-  const t = translations[safeLang]?.footer || translations['en'].footer
+export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row">
@@ -23,23 +20,16 @@ export function Footer({ lang }: { lang: Language }) {
         </div>
 
         <p className="text-center text-sm text-muted-foreground">
-          {safeLang === 'zh' ? '用心制作 — 全面发展的现代化浏览器 · MIT License' : 'Made with care — Modern browser for all · MIT License'}
+          用心制作 — 全面发展的现代化浏览器 · MIT License
         </p>
 
         <div className="flex items-center gap-4">
-          <Link
-            href={`/${safeLang}/language`}
-            className="text-muted-foreground transition-colors hover:text-foreground"
-            aria-label={safeLang === 'zh' ? '选择语言' : 'Select Language'}
-          >
-            <Languages className="h-5 w-5" />
-          </Link>
           <Link
             href="/sitemap.xml"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-foreground"
-            aria-label={safeLang === 'zh' ? '站点地图' : 'Sitemap'}
+            aria-label="站点地图"
           >
             <MapPin className="h-5 w-5" />
           </Link>
@@ -48,7 +38,7 @@ export function Footer({ lang }: { lang: Language }) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-foreground"
-            aria-label={t.github}
+            aria-label="GitHub"
           >
             <Github className="h-5 w-5" />
           </Link>

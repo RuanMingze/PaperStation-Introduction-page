@@ -1,10 +1,10 @@
 {
-  "name": "PaperStation-Introduction-page",
+  "name": "paperstation-introduction-page",
   "version": "1.8.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "cross-env OUTPUT_MODE=export next build",
+    "build": "next build --webpack",
     "build:standalone": "cross-env NEXT_OUTPUT_MODE=standalone next build",
     "start": "if [ -f .next/standalone/server.js ]; then node .next/standalone/server.js; else next start; fi",
     "lint": "next lint"
@@ -49,9 +49,9 @@
     "lucide-react": "^0.544.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
-    "react": "19.2.3",
+    "react": "18.0.0",
     "react-day-picker": "8.10.1",
-    "react-dom": "19.2.3",
+    "react-dom": "18.0.0",
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
@@ -65,8 +65,8 @@
     "@tailwindcss/postcss": "^4.1.13",
     "@types/aos": "^3.0.7",
     "@types/node": "^22",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
     "cross-env": "^10.1.0",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
@@ -74,8 +74,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react": "19.2.7",
-      "@types/react-dom": "19.2.3"
+      "@types/react": "18.3.12",
+      "@types/react-dom": "18.3.1"
     },
     "onlyBuiltDependencies": [
       "sharp"
