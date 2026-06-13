@@ -40,7 +40,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <GlobalErrorHandler />
           <NavigationProgress />
-          <SnowfallEffect />
           {children}
           <AosInit />
           <AosControl />
