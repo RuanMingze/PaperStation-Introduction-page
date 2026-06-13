@@ -6,7 +6,6 @@ import { AosControl } from '@/components/aos-control'
 import { OrientationPrompt } from '@/components/orientation-prompt'
 import { NavigationProgress } from '@/components/navigation-progress'
 import { GlobalErrorHandler } from '@/components/global-error-handler'
-import { SnowfallEffect } from '@/components/snowfall-effect'
 import { getEarlyErrorHandlingScript } from '@/lib/error-handling-script'
 
 import './globals.css'
