@@ -118,7 +118,7 @@ export function ContributeSection() {
                     R
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">Ruanm</p>
+                    <p className="font-medium text-foreground">Ruanftrix</p>
                     <p className="text-sm text-muted-foreground">
                       核心开发团队
                     </p>
